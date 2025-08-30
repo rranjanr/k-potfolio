@@ -991,8 +991,8 @@ function downloadCV() {
     try {
         // Create a link element
         const link = document.createElement('a');
-        link.href = 'photos/Rahul Ranjan.pdf';
-        link.download = 'Rahul_Ranjan_CV.pdf';
+        link.href = 'photos/vaishalisharmaCV.pdf';
+        link.download = 'vaishalisharmaCV.pdf';
         link.target = '_blank';
         
         // Add link to document
