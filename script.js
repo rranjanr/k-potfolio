@@ -1,5 +1,19 @@
+// Domain redirect to fix SSL issues
+function initDomainRedirect() {
+    // Check if user is on www subdomain and redirect to root domain
+    if (window.location.hostname.startsWith('www.')) {
+        const rootDomain = window.location.hostname.replace('www.', '');
+        const newUrl = window.location.protocol + '//' + rootDomain + window.location.pathname + window.location.search + window.location.hash;
+        window.location.replace(newUrl);
+        return;
+    }
+}
+
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Check and redirect domain first
+    initDomainRedirect();
+    
     // Initialize all functionality
     initLoadingScreen();
     initNavigation();
