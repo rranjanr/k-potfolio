@@ -1,0 +1,188 @@
+/* ---- Hero ---- */
+.hero {
+  padding: calc(var(--sp-16) + var(--sp-6)) 0 var(--sp-12);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.85fr;
+  gap: var(--sp-10);
+  align-items: center;
+}
+
+.hero-title {
+  margin-top: var(--sp-4);
+}
+
+.hero-title .line-1 {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: var(--sp-2);
+}
+
+.hero-title .name {
+  display: block;
+  font-size: var(--fs-hero);
+  min-height: 1.1em;
+}
+
+.hero-title .role {
+  display: block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: var(--fs-xl);
+  color: var(--accent);
+  margin-top: var(--sp-2);
+}
+
+.hero-desc {
+  margin-top: var(--sp-5);
+  font-size: var(--fs-md);
+  max-width: 46ch;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-top: var(--sp-6);
+}
+
+.hero-stats {
+  display: flex;
+  gap: var(--sp-8);
+  margin-top: var(--sp-10);
+}
+
+.hero-stats .stat-number { text-align: left; font-size: var(--fs-lg); }
+.hero-stats .stat-item { padding: 0; text-align: left; }
+
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-frame {
+  position: relative;
+  width: min(380px, 84vw);
+  aspect-ratio: 3/4;
+  border-radius: var(--r-xl);
+  padding: var(--sp-2);
+  overflow: hidden;
+}
+
+.hero-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: calc(var(--r-xl) - 6px);
+}
+
+.hero-badge {
+  position: absolute;
+  bottom: var(--sp-5);
+  left: calc(-1 * var(--sp-6));
+  padding: var(--sp-4) var(--sp-5);
+  border-radius: var(--r-md);
+  min-width: 190px;
+}
+
+.hero-badge .eyebrow { margin-bottom: var(--sp-1); }
+.hero-badge strong { display: block; font-family: var(--font-display); font-size: var(--fs-md); }
+
+.hero-orbit {
+  position: absolute;
+  top: -10%;
+  right: -8%;
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+}
+
+.hero-orbit .dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--success);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--success) 25%, transparent);
+}
+
+@media (max-width: 940px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-visual { order: -1; margin-bottom: var(--sp-4); }
+  .hero-stats { gap: var(--sp-6); flex-wrap: wrap; }
+}
+
+/* ---- Featured work ---- */
+.featured-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-8);
+}
+
+.featured-header .section-header { margin-bottom: 0; }
+
+/* ---- About teaser ---- */
+.about-teaser {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: var(--sp-10);
+  align-items: center;
+}
+
+.about-teaser-image {
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  aspect-ratio: 4/5;
+}
+
+@media (max-width: 860px) {
+  .about-teaser { grid-template-columns: 1fr; }
+}
+
+/* ---- Process ---- */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-5);
+}
+
+.process-card { padding: var(--sp-5); }
+.process-card .step-num {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  color: var(--accent);
+}
+.process-card h4 { margin-top: var(--sp-3); }
+.process-card p { margin-top: var(--sp-2); font-size: var(--fs-sm); }
+
+@media (max-width: 980px) {
+  .process-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .process-grid { grid-template-columns: 1fr; }
+}
+
+/* ---- CTA band ---- */
+.cta-band {
+  padding: var(--sp-10);
+  border-radius: var(--r-xl);
+  text-align: center;
+  background: var(--accent-soft);
+  border: 1.5px solid var(--border-strong);
+  box-shadow: var(--hard-shadow);
+}
+
+.cta-band h2 { max-width: 20ch; margin: 0 auto; }
+.cta-band p { margin: var(--sp-3) auto 0; }
+.cta-band .hero-actions { justify-content: center; }
