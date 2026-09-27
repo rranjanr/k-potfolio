@@ -1,0 +1,208 @@
+/* ==========================================================================
+   Kathmandu page: "Kathmandu Valley, live" canvas scene (assets/js/kathmandu-live.js)
+   ========================================================================== */
+
+.kv { margin: var(--sp-8) 0 0; }
+
+.kv-stage {
+  position: relative;
+  aspect-ratio: 16 / 7.2;
+  min-height: 320px;
+  border: 1.5px solid var(--border-strong);
+  border-radius: var(--r-xl);
+  box-shadow: var(--hard-shadow);
+  overflow: hidden;
+  isolation: isolate;
+  /* painted before the script runs, and the fallback without JavaScript */
+  background: linear-gradient(180deg, #2c4c8e 0%, #8f8fc4 45%, #f4b88a 62%, #3c4a5e 63%, #1d2230 100%);
+}
+
+.kv-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 0;
+  transition: opacity 900ms cubic-bezier(0.45, 0.05, 0.25, 1);
+}
+
+.kv.is-ready .kv-canvas { opacity: 1; }
+
+/* ---- HUD ---- */
+.kv-hud {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  padding: var(--sp-4);
+  pointer-events: none;
+}
+
+.kv-hud > * { pointer-events: auto; }
+.kv-hud-top { top: 0; }
+
+/* ---- Controls under the scene ---- */
+.kv-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-top: var(--sp-4);
+}
+
+.kv .kv-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 6px 12px;
+  border-radius: var(--r-pill);
+  background: color-mix(in srgb, var(--bg-raised) 88%, transparent);
+  border: 1.5px solid var(--border-strong);
+  box-shadow: var(--hard-shadow-sm);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.kv .kv-chip time { font-variant-numeric: tabular-nums; font-weight: 700; }
+.kv-next { color: var(--text-secondary); font-weight: 500; }
+
+.kv-live {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e5322b;
+  box-shadow: 0 0 0 0 rgba(229, 50, 43, 0.5);
+}
+
+.kv.is-scrubbed .kv-live { background: var(--accent); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .kv:not(.is-scrubbed) .kv-live { animation: kv-pulse 1.8s ease-out infinite; }
+}
+
+@keyframes kv-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(229, 50, 43, 0.55); }
+  80%, 100% { box-shadow: 0 0 0 9px rgba(229, 50, 43, 0); }
+}
+
+/* ---- Time scrubber: track painted with today's real sky colours ---- */
+.kv-scrub {
+  position: relative;
+  flex: 1;
+  display: block;
+  padding: 12px 16px 26px;
+  border-radius: var(--r-md);
+  background: var(--bg-raised);
+  border: 1.5px solid var(--border-strong);
+  box-shadow: var(--hard-shadow-sm);
+}
+
+.kv-scrub-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.kv-range {
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 10px;
+  margin: 0;
+  border-radius: var(--r-pill);
+  border: 1.5px solid var(--border-strong);
+  background: var(--kv-track, linear-gradient(90deg, #0b1230, #ffb37a, #79b3e6, #ffb37a, #0b1230));
+  cursor: pointer;
+}
+
+.kv-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ffd36e;
+  border: 2px solid var(--border-strong);
+  box-shadow: 3px 3px 0 var(--border-strong);
+  cursor: grab;
+}
+
+.kv-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ffd36e;
+  border: 2px solid var(--border-strong);
+  box-shadow: 3px 3px 0 var(--border-strong);
+  cursor: grab;
+}
+
+.kv-range:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+.kv-marks { position: relative; display: block; height: 0; }
+.kv-marks span {
+  position: absolute;
+  top: 7px;
+  transform: translateX(-50%);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+.kv-marks span::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -6px;
+  width: 1px;
+  height: 5px;
+  background: var(--text-tertiary);
+}
+
+.kv-back {
+  flex-shrink: 0;
+  padding: 8px 14px;
+  border-radius: var(--r-pill);
+  border: 1.5px solid var(--border-strong);
+  background: #e5322b;
+  color: #fff;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  box-shadow: var(--hard-shadow-sm);
+  cursor: pointer;
+}
+
+.kv-back[hidden] { display: none; }
+.kv-back:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.kv-caption {
+  margin-top: var(--sp-4);
+  max-width: 72ch;
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+}
+
+@media (max-width: 720px) {
+  .kv-stage { aspect-ratio: 1 / 1.05; min-height: 0; }
+  .kv-hud { padding: var(--sp-3); }
+  .kv-hud-top { flex-direction: column; gap: 6px; }
+  .kv .kv-chip { font-size: 11px; padding: 4px 9px; gap: 6px; box-shadow: 2px 2px 0 var(--border-strong); }
+  .kv-live { width: 7px; height: 7px; }
+  .kv-next { display: none; }
+  .kv-scrub-label span + span { display: none; }
+  .kv-scrub { padding: 10px 12px 24px; }
+  .kv-controls { flex-direction: column; align-items: stretch; }
+  .kv-back { align-self: flex-start; }
+}

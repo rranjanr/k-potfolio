@@ -10,7 +10,7 @@ Portfolio and services site for Vaishali Sharma, Graphic Designer & Social Media
 ├── about.html                  About
 ├── contact.html                 Contact (Formspree-powered form)
 ├── biratnagar.html              Location page: Biratnagar & eastern Nepal
-├── kathmandu.html               Location page: Kathmandu Valley (remote)
+├── kathmandu.html               Location page: Kathmandu Valley (remote), with the live canvas scene (kathmandu-live.js)
 ├── services/
 │   ├── index.html                Services hub
 │   ├── graphic-design.html        Graphic design service
@@ -32,12 +32,13 @@ Portfolio and services site for Vaishali Sharma, Graphic Designer & Social Media
 │   │   ├── base.css                Design tokens (colors, type, spacing), reset, theme
 │   │   ├── components.css          Nav, buttons, cards, footer, forms, toasts, glass utility
 │   │   ├── layout.css               Shared section/grid patterns (hero, portfolio grid, blog, resume, etc.)
-│   │   └── pages/                    Page-specific overrides (home.css, about.css, resume.css, 404.css)
+│   │   └── pages/                    Page-specific overrides (home.css, about.css, resume.css, 404.css, kathmandu.css)
 │   ├── js/
 │   │   ├── main.js                   Shared behaviour: nav, theme toggle, scroll fx, toasts
 │   │   ├── contact-form.js            Contact form validation + Formspree submission
 │   │   └── portfolio-filter.js         Portfolio category filter
 │   │   └── 404.js                      404 artboard: shows the missing path, rulers, size badge, draggable 404
+│   │   └── kathmandu-live.js           "Kathmandu Valley, live": procedural canvas scene driven by the real sun over Kathmandu
 │   ├── fonts/                      Self-hosted Bricolage Grotesque + Archivo (woff2, latin + latin-ext, OFL)
 │   ├── images/
 │   │   ├── profile/                    Headshot

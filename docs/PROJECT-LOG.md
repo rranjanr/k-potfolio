@@ -4,6 +4,30 @@ A record of what was changed on this site, why, and what is still open. Read thi
 
 ---
 
+## 2026-09-27 (later): "Kathmandu Valley, live" scene on /kathmandu
+
+The owner asked for something "out of the world" for the Kathmandu page: a live, highly detailed image built with JavaScript and CSS. The page had no visual at all, so the scene sits directly under the hero buttons as the page's first image. Files: `assets/js/kathmandu-live.js`, `assets/css/pages/kathmandu.css`, markup in `kathmandu.html` (`#kvScene`).
+
+**What it is:** a procedural `<canvas>` scene driven by the real sun position over Kathmandu (27.72 N, 85.32 E, Nepal time UTC+5:45, NOAA solar equations).
+- The sky palette, sun, **real moon phase**, stars, Milky Way, city light-glow and pink **alpenglow** on the snow all follow the actual clock. The computed sunrise and sunset for 2026-09-27 are 5:56 AM and 5:56 PM (correct for the equinox).
+- The Himalaya are in real order from Kathmandu (west to east): Ganesh Himal 7,422 m, Langtang Lirung 7,234 m, Dorje Lakpa 6,966 m, Gauri Shankar 7,134 m. They have asymmetric faces, sun-side lighting, snowfields and couloir streaks, and are labelled when the scene is at least 560px wide.
+- The valley has Swayambhunath on the western hill, terraced hillsides, two pagoda temples, the Dharahara tower, and houses with rooftop water tanks. Windows light up individually after sunset and some go dark late at night; a few TVs flicker.
+- The hero is Boudhanath: three terraces, a lit dome with saffron lotus-petal loops, the harmika with the Buddha eyes and the Nepali-numeral "nose", 13 gold rings, parasol and pinnacle, a paved kora and a wall of gold prayer wheels, prayer flags in lungta order (blue, white, red, green, yellow) that flutter, circling pigeons, juniper smoke, and butter lamps along the terraces at night. It is floodlit warm after dark.
+- Also: drifting clouds tinted by the light, dawn valley fog, a plane with blinking navigation lights, and Dashain kites that appear only in the real kite season (15 Sep to 10 Nov) during daylight.
+- **Interaction:** mouse parallax across four depth layers, and a time scrubber under the scene whose track is painted with that day's real sky colours, with sunrise and sunset marked. "Back to live" returns to the real time. The HUD shows Live/Preview, the Kathmandu time, the phase (Daylight, Golden hour, Sunrise or Sunset glow, Blue hour, Night) and the next sunrise or sunset.
+
+**Engineering:**
+- The sky, far mountains, hills and city are cached in offscreen canvases (with overscan for parallax) and rebuilt only when the minute changes or the visitor scrubs. Each frame only composites them and draws the moving parts.
+- The device pixel ratio is capped at 2. Animation starts after idle, pauses off-screen (IntersectionObserver) and in hidden tabs, and under `prefers-reduced-motion` renders a single still frame with no loop and no parallax.
+- `role="img"` with a dynamic `aria-label` describing the scene and time. The range input has `aria-valuetext`.
+- The HUD chips use `.kv .kv-chip` specificity because `.page-hero p` otherwise enlarges them (the scene sits inside the page hero).
+
+**Verified:** 60 fps in Chromium (average frame 16.7 ms, 95th percentile 16.8 ms). Five scrub rebuilds take 38 ms. No overflow at 375/390px or 1280px, and no JS errors. Reduced motion gives an identical still frame. Lighthouse (mobile) on /kathmandu: Performance 94 light / 93 dark, Accessibility 100, Best Practices 100, SEO 100, CLS 0. html-validate is clean.
+
+**Tuning:** geometry lives in `buildGeo()` (peak list `PEAKS`, stupa scale in `st.rx`/`st.ry`, flag strings); colours by sun elevation are in `SKY`; per-frame elements are in `render()`.
+
+---
+
 ## 2026-09-27 (later): Spacing system, smooth theme switch, TikTok
 
 **Vertical spacing.** The owner reported too much space between the header and the hero. Measured on every page: 99px (home) and 77px (inner pages) from the fixed navbar to the first content, and 198 to 292px between sections on desktop, because heroes used a hard-coded `8rem + 2rem` top padding and every `.section` had 96px top and bottom padding.
