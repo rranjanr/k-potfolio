@@ -3,33 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function(){var d=document.documentElement,t=null;try{t=localStorage.getItem('theme')}catch(e){}if(t!=='dark'&&t!=='light'){t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}d.setAttribute('data-theme',t)})();</script>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6RFY3KT8M6"></script>
+  <!-- Google Analytics 4: events queue immediately; the library loads once the page is idle so it never delays rendering -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-6RFY3KT8M6');
+    window.addEventListener('load', function () {
+      var load = function () {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-6RFY3KT8M6';
+        document.head.appendChild(s);
+      };
+      if ('requestIdleCallback' in window) requestIdleCallback(load, { timeout: 3000 });
+      else setTimeout(load, 1500);
+    });
   </script>
 
-  <title>About Vaishali Sharma: UI/UX Designer & Front-End Developer</title>
-  <meta name="description" content="Meet Vaishali Sharma, a UI/UX designer and front-end developer with a BCA from Tribhuvan University and hands-on experience designing six responsive interfaces and a 20+ element component library during her internship at Clove I.T.">
-  <link rel="canonical" href="https://vaishalisharma.com.np/about.html">
+  <title>About Vaishali Sharma | Graphic Designer &amp; Social Media Marketer</title>
+  <meta name="description" content="Vaishali Sharma is a graphic designer and social media marketer from Biratnagar, Nepal, with 1+ year of design experience, a BCA and hands-on Meta ads work.">
+  <link rel="canonical" href="https://vaishalisharma.com.np/about">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Vaishali Sharma">
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="profile">
-  <meta property="og:title" content="About Vaishali Sharma: UI/UX Designer & Front-End Developer">
-  <meta property="og:description" content="A BCA graduate turned UI/UX designer and front-end developer, grounded in real internship work: component systems, usability testing, and shipped interfaces.">
-  <meta property="og:url" content="https://vaishalisharma.com.np/about.html">
+  <meta property="og:site_name" content="Vaishali Sharma">
+  <meta property="og:title" content="About Vaishali Sharma | Graphic Designer &amp; Social Media Marketer">
+  <meta property="og:description" content="Vaishali Sharma is a graphic designer and social media marketer from Biratnagar, Nepal, with 1+ year of design experience, a BCA and hands-on Meta ads work.">
+  <meta property="og:url" content="https://vaishalisharma.com.np/about">
   <meta property="og:image" content="https://vaishalisharma.com.np/assets/images/og/about.jpg">
+  <meta property="og:image:alt" content="About Vaishali Sharma | Graphic Designer &amp; Social Media Marketer">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="About Vaishali Sharma: UI/UX Designer & Front-End Developer">
-  <meta name="twitter:description" content="A BCA graduate turned UI/UX designer and front-end developer, grounded in real internship work: component systems, usability testing, and shipped interfaces.">
+  <meta name="twitter:title" content="About Vaishali Sharma | Graphic Designer &amp; Social Media Marketer">
+  <meta name="twitter:description" content="Vaishali Sharma is a graphic designer and social media marketer from Biratnagar, Nepal, with 1+ year of design experience, a BCA and hands-on Meta ads work.">
   <meta name="twitter:image" content="https://vaishalisharma.com.np/assets/images/og/about.jpg">
 
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-96x96.png" sizes="96x96">
   <link rel="shortcut icon" href="/favicon.ico">
@@ -38,9 +51,8 @@
   <meta name="apple-mobile-web-app-title" content="Vaishali Sharma">
   <meta name="theme-color" content="#f5f1e6">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
 
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/components.css">
@@ -50,26 +62,211 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Vaishali Sharma",
-    "url": "https://vaishalisharma.com.np/about.html",
-    "image": "https://vaishalisharma.com.np/assets/images/profile/pp.jpg",
-    "jobTitle": "UI/UX Designer & Front-End Developer",
-    "email": "mailto:khushee.m.sharma@gmail.com",
-    "address": { "@type": "PostalAddress", "addressLocality": "Biratnagar", "addressCountry": "NP" },
-    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Tribhuvan University" },
-    "sameAs": ["https://linkedin.com/in/vaishali-sharma01"]
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://vaishalisharma.com.np/#website",
+        "url": "https://vaishalisharma.com.np/",
+        "name": "Vaishali Sharma",
+        "inLanguage": "en",
+        "publisher": {
+          "@id": "https://vaishalisharma.com.np/#person"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://vaishalisharma.com.np/#person",
+        "name": "Vaishali Sharma",
+        "url": "https://vaishalisharma.com.np/",
+        "image": "https://vaishalisharma.com.np/assets/images/profile/pp.jpg",
+        "jobTitle": "Graphic Designer & Social Media Marketer",
+        "description": "Graphic designer and social media marketer based in Biratnagar, Nepal. Designs social media content, manages Facebook and Instagram pages, and runs Meta ads for Nepali businesses.",
+        "email": "mailto:khushee.m.sharma@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Biratnagar",
+          "addressRegion": "Koshi Province",
+          "addressCountry": "NP"
+        },
+        "homeLocation": {
+          "@type": "City",
+          "name": "Biratnagar"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Tribhuvan University"
+        },
+        "knowsAbout": [
+          "Graphic design",
+          "Social media design",
+          "Social media management",
+          "Content creation",
+          "Short-form video editing",
+          "AI video generation",
+          "Script writing",
+          "Meta Ads",
+          "Facebook boosting",
+          "Instagram marketing",
+          "Lead handling",
+          "Brand identity",
+          "Canva",
+          "Adobe Illustrator",
+          "Figma",
+          "CapCut",
+          "UI/UX design"
+        ],
+        "knowsLanguage": [
+          "en",
+          "ne"
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/vaishali-sharma01",
+          "https://www.tiktok.com/@khuuushiiiiii"
+        ]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://vaishalisharma.com.np/#business",
+        "name": "Vaishali Sharma: Graphic Design & Social Media Marketing",
+        "url": "https://vaishalisharma.com.np/",
+        "image": "https://vaishalisharma.com.np/assets/images/og/home.jpg",
+        "logo": "https://vaishalisharma.com.np/assets/images/favicon/web-app-manifest-512x512.png",
+        "description": "Freelance graphic design, social media management and Meta ads (Facebook and Instagram boosting) for businesses in Biratnagar, Kathmandu and across Nepal.",
+        "email": "mailto:khushee.m.sharma@gmail.com",
+        "founder": {
+          "@id": "https://vaishalisharma.com.np/#person"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Biratnagar",
+          "addressRegion": "Koshi Province",
+          "addressCountry": "NP"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 26.4525,
+          "longitude": 87.2718
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Biratnagar"
+          },
+          {
+            "@type": "City",
+            "name": "Itahari"
+          },
+          {
+            "@type": "City",
+            "name": "Dharan"
+          },
+          {
+            "@type": "City",
+            "name": "Inaruwa"
+          },
+          {
+            "@type": "City",
+            "name": "Damak"
+          },
+          {
+            "@type": "City",
+            "name": "Birtamod"
+          },
+          {
+            "@type": "City",
+            "name": "Kathmandu"
+          },
+          {
+            "@type": "City",
+            "name": "Lalitpur"
+          },
+          {
+            "@type": "City",
+            "name": "Bhaktapur"
+          },
+          {
+            "@type": "Country",
+            "name": "Nepal"
+          }
+        ],
+        "knowsAbout": [
+          "Graphic design",
+          "Social media design",
+          "Social media management",
+          "Content creation",
+          "Short-form video editing",
+          "AI video generation",
+          "Script writing",
+          "Meta Ads",
+          "Facebook boosting",
+          "Instagram marketing",
+          "Lead handling",
+          "Brand identity"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "email": "khushee.m.sharma@gmail.com",
+          "url": "https://wa.me/9779827303983?text=Hi%20Vaishali%2C%20I%20found%20your%20website%20and%20want%20to%20talk%20about%20a%20project.",
+          "availableLanguage": [
+            "English",
+            "Nepali"
+          ]
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/vaishali-sharma01",
+          "https://www.tiktok.com/@khuuushiiiiii"
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://vaishalisharma.com.np/about#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://vaishalisharma.com.np/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "About",
+            "item": "https://vaishalisharma.com.np/about"
+          }
+        ]
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://vaishalisharma.com.np/about#webpage",
+        "url": "https://vaishalisharma.com.np/about",
+        "name": "About Vaishali Sharma | Graphic Designer & Social Media Marketer",
+        "description": "Vaishali Sharma is a graphic designer and social media marketer from Biratnagar, Nepal, with 1+ year of design experience, a BCA and hands-on Meta ads work.",
+        "isPartOf": {
+          "@id": "https://vaishalisharma.com.np/#website"
+        },
+        "about": {
+          "@id": "https://vaishalisharma.com.np/#person"
+        },
+        "inLanguage": "en",
+        "dateModified": "2026-09-27",
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://vaishalisharma.com.np/assets/images/og/about.jpg"
+        },
+        "breadcrumb": {
+          "@id": "https://vaishalisharma.com.np/about#breadcrumb"
+        },
+        "mainEntity": {
+          "@id": "https://vaishalisharma.com.np/#person"
+        }
+      }
+    ]
   }
   </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-
-  <!-- Loading Screen -->
-  <div class="loading-screen" id="loadingScreen">
-    <div class="loading-mark">VS</div>
-    <div class="loading-bar"></div>
-  </div>
 
   <div class="scroll-progress" id="scrollProgress"></div>
 
@@ -82,11 +279,11 @@
       </a>
       <ul class="nav-menu" id="navMenu">
         <li><a href="/" class="nav-link">Home</a></li>
-        <li><a href="/about.html" class="nav-link active">About</a></li>
+        <li><a href="/services/" class="nav-link">Services</a></li>
         <li><a href="/portfolio/" class="nav-link">Portfolio</a></li>
-        <li><a href="/resume/" class="nav-link">Resume</a></li>
+        <li><a href="/about" class="nav-link active" aria-current="page">About</a></li>
         <li><a href="/blog/" class="nav-link">Blog</a></li>
-        <li><a href="/contact.html" class="nav-link">Contact</a></li>
+        <li><a href="/contact" class="nav-link">Contact</a></li>
       </ul>
       <div class="nav-actions">
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
@@ -104,46 +301,52 @@
     <!-- Page hero -->
     <section class="page-hero">
       <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / <span aria-current="page">About</span></nav>
         <span class="eyebrow">About Me</span>
-        <h1>I design interfaces, then I build them myself.</h1>
-        <p>I'm a UI/UX designer and front-end developer from Biratnagar, Nepal, trained in computer applications, sharpened by a real product internship, and just as comfortable in Figma as I am in a CSS file.</p>
+        <h1>About Vaishali Sharma, Graphic Designer &amp; Social Media Marketer</h1>
+        <p style="max-width: 68ch;">I'm a graphic designer and social media marketer from Biratnagar, Nepal. I design the posts, make the reels, run the ads and answer the messages, so a business's social media works as one thing instead of four separate jobs.</p>
       </div>
     </section>
 
     <!-- Bio -->
-    <section class="section" id="bio">
+    <section class="section" id="bio" style="padding-top: 0;">
       <div class="container bio-grid">
         <div class="bio-image reveal-on-scroll">
-          <img src="/assets/images/profile/pp.jpg" alt="Vaishali Sharma, UI/UX designer and front-end developer" width="500" height="625" loading="lazy">
+          <picture><source srcset="/assets/images/profile/pp-480.webp 480w, /assets/images/profile/pp-760.webp 760w, /assets/images/profile/pp.webp 1200w" sizes="(max-width: 520px) 84vw, 420px" type="image/webp"><img src="/assets/images/profile/pp.jpg" alt="Vaishali Sharma, graphic designer and social media marketer from Biratnagar, Nepal" width="500" height="625" loading="lazy"></picture>
         </div>
         <div class="bio-copy reveal-on-scroll">
           <span class="eyebrow">My Story</span>
-          <h2 style="margin-top: var(--sp-3);">From coursework to shipped components</h2>
+          <h2 style="margin-top: var(--sp-3);">From interface design to social media that sells</h2>
           <p style="margin-top: var(--sp-5); font-size: var(--fs-md);">
-            I'm a UI/UX designer and front-end developer based in Biratnagar, Nepal, and a BCA
-            (Bachelor in Computer Application) graduate of Tribhuvan University (2020–2025). My
-            process is shaped less by theory and more by shipping. I spend as much time checking
-            how a component actually behaves in the browser as I do refining it in Figma, which is
-            the same approach I walk through in my <a href="/blog/ui-ux-design-process-case-study-walkthrough.html">design process breakdown</a>.
+            I have more than a year of graphic design experience, working mostly in Canva, Adobe
+            Illustrator and Figma on social media posts, brand visuals, 3D product graphics and ad
+            creatives. Before that, I trained as a UI/UX designer, and I hold a BCA (Bachelor in
+            Computer Application) from Tribhuvan University (2020 to 2025).
           </p>
           <p>
-            During my UI/UX design internship at Clove I.T. Pvt. Ltd. (2024–2025), I designed six
-            responsive web and mobile interfaces from wireframe through to high-fidelity Figma
-            file, and built out a component library of 20+ reusable elements so the three-member
-            dev team I worked alongside could ship consistent UI without re-solving the same
-            button, form, and card patterns every sprint. I also planned and ran usability testing
-            sessions that cut the checkout and sign-in flows from five steps down to three, a
-            change that came directly from watching real users get stuck and asking why. That
-            same instinct for cutting friction shows up again in the sign-in flow for
-            <a href="/portfolio/streets-to-runways.html">Streets to Runways</a>.
+            For the last three months I have been working hands-on in digital marketing for
+            <a href="/portfolio/rouniyar-international-bath-nepal">Rouniyar International and Bath Nepal</a>.
+            The job covers everything a small business needs from social media: content creation,
+            video editing, AI video generation, script writing, running Meta ads, replying to the
+            leads those ads bring in, and keeping up engagement on both accounts.
           </p>
           <p>
-            Outside of product interfaces, I design brand and social content in Canva, edit and
-            assemble short-form video in CapCut, and have been using AI-assisted tools (including
-            Google's Omni model) to speed up video content generation. Different medium, same
-            goal: making something look intentional and load fast, whether it's a <a href="/portfolio/">landing page</a> or
-            a 15-second reel.
+            My UI/UX internship at Clove I.T. Pvt. Ltd. (2024 to 2025) still shapes how I work. I
+            designed six responsive web and mobile interfaces there, built a component library of
+            20+ reusable elements, and ran usability tests that cut a checkout and sign-in flow from
+            five steps to three. That habit of watching what real people actually do, and fixing
+            what slows them down, is the same one I use when I look at which posts and ads bring
+            messages and which ones get ignored.
           </p>
+          <p>
+            I write in Nepali and English, I plan around the festival calendar, and I work with
+            businesses in person around <a href="/biratnagar">Biratnagar</a> and remotely across
+            <a href="/kathmandu">Kathmandu</a> and the rest of Nepal.
+          </p>
+          <div class="hero-actions">
+            <a href="/contact" class="btn btn-primary">Hire Me Now</a>
+            <a href="/resume/" class="btn btn-glass">See my resume</a>
+          </div>
         </div>
       </div>
     </section>
@@ -153,28 +356,74 @@
       <div class="container">
         <div class="stats-row reveal-on-scroll">
           <div class="stat-item">
-            <span class="stat-number" data-count-to="6">0</span>
-            <span class="stat-label">Interfaces Designed</span>
+            <span class="stat-number" data-count-to="1" data-suffix="+">1+</span>
+            <span class="stat-label">Year of Graphic Design</span>
           </div>
           <div class="stat-item">
-            <span class="stat-number" data-count-to="20" data-suffix="+">0+</span>
-            <span class="stat-label">Component Library Elements</span>
+            <span class="stat-number" data-count-to="2">2</span>
+            <span class="stat-label">Brand Accounts Managed</span>
           </div>
           <div class="stat-item">
-            <span class="stat-number" data-count-to="40" data-suffix="%">0%</span>
-            <span class="stat-label">Fewer Checkout Steps</span>
+            <span class="stat-number" data-count-to="6">6</span>
+            <span class="stat-label">Web Interfaces Designed</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section" style="background: var(--bg-alt);">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="eyebrow">Experience</span>
+          <h2>Where I have worked</h2>
+        </div>
+        <div class="timeline reveal-on-scroll" style="max-width: 820px;">
+          <div class="timeline-item">
+            <span class="timeline-date">2026 to present</span>
+            <h3 style="font-size: var(--fs-md);">Digital Marketing &amp; Content, Rouniyar International and Bath Nepal</h3>
+            <ul>
+              <li>Plan, design and post content for two brand accounts, almost every day</li>
+              <li>Edit product reels and promo videos in CapCut and create AI-generated video</li>
+              <li>Write scripts, hooks and captions in Nepali and English</li>
+              <li>Run Meta ads and reply to the leads they bring in</li>
+              <li>Handle comments and engagement on both accounts</li>
+            </ul>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-date">2025 to present</span>
+            <h3 style="font-size: var(--fs-md);">Graphic Designer</h3>
+            <ul>
+              <li>Social media posts, brand identity and ad creatives in Canva, Illustrator and Figma</li>
+              <li>3D product visuals, including a 3D smoothie collection</li>
+              <li>Brand-style social posts, including a Nike Instagram concept</li>
+            </ul>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-date">2024 to 2025</span>
+            <h3 style="font-size: var(--fs-md);">UI/UX Design Intern, Clove I.T. Pvt. Ltd.</h3>
+            <ul>
+              <li>Designed 6 responsive web and mobile interfaces in Figma</li>
+              <li>Built a design system with 20+ reusable components</li>
+              <li>Ran usability tests that cut checkout and sign-in from 5 steps to 3</li>
+            </ul>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-date">2020 to 2025</span>
+            <h3 style="font-size: var(--fs-md);">BCA, Tribhuvan University, Nepal</h3>
+            <p>Bachelor in Computer Application. GPA 3.32.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Skills -->
-    <section class="section" style="background: var(--bg-alt);">
+    <section class="section">
       <div class="container">
-        <div class="section-header center reveal-on-scroll" style="margin-left:auto;margin-right:auto;">
+        <div class="section-header center reveal-on-scroll">
           <span class="eyebrow" style="justify-content:center;">What I Work With</span>
           <h2>Tools &amp; skills</h2>
-          <p>A working set built through coursework, self-teaching, and an internship that put every one of these to real use.</p>
+          <p>Built through design work, a UI/UX internship and running real brand accounts.</p>
         </div>
 
         <div class="skills-grid">
@@ -184,52 +433,46 @@
               <h3>Visual Craft</h3>
             </div>
             <div class="skill-item">
-              <span class="skill-name">Figma</span>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-level="95"></div></div>
+              <span class="skill-name">Canva</span>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-level="92"></div></div>
             </div>
             <div class="skill-item">
-              <span class="skill-name">Adobe XD</span>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-level="85"></div></div>
+              <span class="skill-name">Figma</span>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-level="90"></div></div>
             </div>
             <div class="skill-item">
               <span class="skill-name">Adobe Illustrator</span>
               <div class="skill-bar-track"><div class="skill-bar-fill" data-level="80"></div></div>
             </div>
             <div class="skill-item">
-              <span class="skill-name">Canva</span>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-level="90"></div></div>
-            </div>
-            <div class="skill-item">
               <span class="skill-name">CapCut (Video Editing)</span>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-level="82"></div></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-level="85"></div></div>
             </div>
             <div class="skill-item">
-              <span class="skill-name">AI Video Generation (Google Omni)</span>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-level="78"></div></div>
+              <span class="skill-name">AI Video Generation</span>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-level="80"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Adobe XD</span>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-level="80"></div></div>
             </div>
           </div>
 
           <div class="skill-category card reveal-on-scroll">
             <div class="category-header">
-              <span class="eyebrow">Brand &amp; Content</span>
-              <h3>Identity &amp; Assets</h3>
+              <span class="eyebrow">Social Media &amp; Ads</span>
+              <h3>Marketing</h3>
             </div>
-            <div class="skill-item">
-              <span class="skill-name">Brand Identity</span>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-level="85"></div></div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">Social Media Design</span>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-level="88"></div></div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">Motion-Ready Assets</span>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-level="80"></div></div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">3D Visual Design</span>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-level="75"></div></div>
-            </div>
+            <ul class="check-list" style="margin-top: var(--sp-4);">
+              <li>Content planning and calendars</li>
+              <li>Social media post and story design</li>
+              <li>Reels, short video and trend content</li>
+              <li>Script, hook and caption writing (Nepali and English)</li>
+              <li>Meta Ads Manager and Facebook boosting</li>
+              <li>Meta Business Suite</li>
+              <li>Lead replies and inbox handling</li>
+              <li>Comment and community engagement</li>
+            </ul>
           </div>
 
           <div class="skill-category card reveal-on-scroll">
@@ -239,27 +482,19 @@
             </div>
             <div class="skill-item">
               <span class="skill-name">Wireframing &amp; Prototyping</span>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-level="92"></div></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-level="90"></div></div>
             </div>
             <div class="skill-item">
               <span class="skill-name">Design Systems</span>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-level="88"></div></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-level="85"></div></div>
             </div>
             <div class="skill-item">
               <span class="skill-name">HTML5 / CSS3</span>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-level="82"></div></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-level="80"></div></div>
             </div>
             <div class="skill-item">
-              <span class="skill-name">Tailwind CSS</span>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-level="78"></div></div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">Bootstrap</span>
+              <span class="skill-name">Tailwind CSS &amp; Bootstrap</span>
               <div class="skill-bar-track"><div class="skill-bar-fill" data-level="76"></div></div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">GitHub</span>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-level="75"></div></div>
             </div>
           </div>
         </div>
@@ -267,7 +502,7 @@
     </section>
 
     <!-- Certifications & Training -->
-    <section class="section">
+    <section class="section" style="background: var(--bg-alt);">
       <div class="container">
         <div class="section-header reveal-on-scroll">
           <span class="eyebrow">Certifications &amp; Training</span>
@@ -276,23 +511,23 @@
         <div class="cert-grid">
           <div class="cert-card card reveal-on-scroll">
             <span class="tag">Self-Trained</span>
-            <h4>Social Media Marketing</h4>
-            <p>Independent study in platform strategy, content planning, and audience growth.</p>
+            <h3 style="font-size: var(--fs-md);">Social Media Marketing</h3>
+            <p>Platform strategy, content planning, audience engagement and digital communication.</p>
           </div>
           <div class="cert-card card reveal-on-scroll">
             <span class="tag">Clove I.T.</span>
-            <h4>UI/UX Design</h4>
-            <p>Applied training in interface design, prototyping, and usability testing during internship.</p>
+            <h3 style="font-size: var(--fs-md);">UI/UX Design</h3>
+            <p>Wireframing, prototyping and usability testing during my internship.</p>
           </div>
           <div class="cert-card card reveal-on-scroll">
             <span class="tag">PI Innovation</span>
-            <h4>JavaScript Training</h4>
-            <p>Core JavaScript fundamentals for building interactive, front-end behavior.</p>
+            <h3 style="font-size: var(--fs-md);">JavaScript Training</h3>
+            <p>Core JavaScript for interactive web pages.</p>
           </div>
           <div class="cert-card card reveal-on-scroll">
             <span class="tag">Broadway Infosys</span>
-            <h4>DevOps Fundamentals</h4>
-            <p>Introductory training in version control, deployment workflows, and build tooling.</p>
+            <h3 style="font-size: var(--fs-md);">DevOps Fundamentals</h3>
+            <p>Version control, deployment workflows and build basics.</p>
           </div>
         </div>
       </div>
@@ -302,11 +537,11 @@
     <section class="section">
       <div class="container">
         <div class="cta-band reveal-on-scroll">
-          <h2>Want the full picture?</h2>
-          <p>See the complete work history and education, or just reach out directly. I read every message myself.</p>
+          <h2>Want me on your page?</h2>
+          <p>Tell me about your business. I read every message myself and reply within 1 to 2 business days.</p>
           <div class="hero-actions">
-            <a href="/resume/" class="btn btn-primary">See Full Resume</a>
-            <a href="/contact.html" class="btn btn-glass">Get In Touch</a>
+            <a href="/contact" class="btn btn-primary">Hire Me Now</a>
+            <a href="https://wa.me/9779827303983?text=Hi%20Vaishali%2C%20I%20found%20your%20website%20and%20want%20to%20talk%20about%20a%20project." class="btn btn-glass" target="_blank" rel="noopener">Chat on WhatsApp</a>
           </div>
         </div>
       </div>
@@ -319,34 +554,44 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="/" class="nav-logo"><span class="mark">VS</span> Vaishali Sharma</a>
-          <p>UI/UX Designer &amp; Front-End Developer based in Biratnagar, Nepal, working with clients everywhere.</p>
+          <p>Graphic designer and social media marketer in Biratnagar, Nepal. I design posts and reels, run Facebook and Instagram pages, and manage Meta ads for businesses across Nepal.</p>
           <div class="social-row" style="margin-top: var(--sp-5);">
-            <a href="https://linkedin.com/in/vaishali-sharma01" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V8h4v1.5A5.98 5.98 0 0 1 16 8Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-            <a href="#" class="social-link" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
-            <a href="#" class="social-link" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a>
+            <a href="https://www.linkedin.com/in/vaishali-sharma01" target="_blank" rel="noopener" class="social-link" aria-label="Vaishali Sharma on LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V8h4v1.5A5.98 5.98 0 0 1 16 8Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="https://www.tiktok.com/@khuuushiiiiii" target="_blank" rel="noopener" class="social-link" aria-label="Vaishali Sharma on TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5 2.6 2.6 0 0 1-2.6-2.6 2.6 2.6 0 0 1 3.35-2.49V9.66a5.73 5.73 0 0 0-.75-.05 5.69 5.69 0 0 0-5.69 5.69A5.69 5.69 0 0 0 9.86 21a5.69 5.69 0 0 0 5.69-5.69V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3a4.3 4.3 0 0 1-3.25-1.48z"/></svg></a>
+            <a href="https://wa.me/9779827303983?text=Hi%20Vaishali%2C%20I%20found%20your%20website%20and%20want%20to%20talk%20about%20a%20project." target="_blank" rel="noopener" class="social-link" aria-label="Chat with Vaishali on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.17-3.48-8.41Z"/></svg></a>
           </div>
         </div>
-        <nav class="footer-col">
-          <h4>Site</h4>
-          <a href="/about.html">About</a>
+        <nav class="footer-col" aria-label="Services">
+          <h2>Services</h2>
+          <a href="/services/graphic-design">Graphic Design</a>
+          <a href="/services/social-media-management">Social Media Management</a>
+          <a href="/services/meta-ads">Meta Ads &amp; Facebook Boosting</a>
+          <a href="/services/">All Services</a>
+        </nav>
+        <nav class="footer-col" aria-label="Site">
+          <h2>Site</h2>
+          <a href="/about">About</a>
           <a href="/portfolio/">Portfolio</a>
           <a href="/resume/">Resume</a>
           <a href="/blog/">Blog</a>
-          <a href="/contact.html">Contact</a>
+          <a href="/contact">Contact</a>
         </nav>
         <div class="footer-col">
-          <h4>Get in touch</h4>
+          <h2>Get in touch</h2>
           <a href="mailto:khushee.m.sharma@gmail.com">khushee.m.sharma@gmail.com</a>
-          <span style="display:block;padding:var(--sp-1) 0;font-size:var(--fs-sm);color:var(--text-secondary);">Biratnagar, Nepal</span>
+          <a href="https://wa.me/9779827303983?text=Hi%20Vaishali%2C%20I%20found%20your%20website%20and%20want%20to%20talk%20about%20a%20project." target="_blank" rel="noopener">WhatsApp me</a>
+          <a href="/biratnagar">Biratnagar, Koshi Province</a>
+          <a href="/kathmandu">Serving Kathmandu Valley</a>
         </div>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2026 Vaishali Sharma. All rights reserved.</p>
-        <p>Designed &amp; built by Vaishali Sharma</p>
+        <p>Graphic design, social media &amp; Meta ads in Nepal</p>
       </div>
     </div>
   </footer>
 
+  <a class="wa-fab" href="https://wa.me/9779827303983?text=Hi%20Vaishali%2C%20I%20found%20your%20website%20and%20want%20to%20talk%20about%20a%20project." target="_blank" rel="noopener" aria-label="Chat with Vaishali on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.17-3.48-8.41Z"/></svg><span class="wa-label">WhatsApp</span></a>
   <button class="fab-button" id="backToTop" aria-label="Back to top">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
   </button>

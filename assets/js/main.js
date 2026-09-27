@@ -6,25 +6,33 @@
   'use strict';
 
   document.addEventListener('DOMContentLoaded', function () {
-    initLoadingScreen();
     initNavigation();
     initSmoothScrolling();
     initThemeToggle();
     initScrollReveal();
     initSkillBars();
-    initHeroEntrance();
     initScrollProgress();
     initBackToTop();
     initStatCounters();
+    initLeadTracking();
   });
 
-  function initLoadingScreen() {
-    const screen = document.getElementById('loadingScreen');
-    if (!screen) return;
-    window.addEventListener('load', function () {
-      setTimeout(function () {
-        screen.classList.add('hidden');
-      }, 350);
+  // GA4 events for the actions that count as leads: WhatsApp, email and phone clicks.
+  function initLeadTracking() {
+    document.addEventListener('click', function (e) {
+      const link = e.target.closest('a[href]');
+      if (!link || typeof window.gtag !== 'function') return;
+      const href = link.getAttribute('href');
+      let method = '';
+      if (href.indexOf('wa.me/') !== -1) method = 'whatsapp';
+      else if (href.indexOf('mailto:') === 0) method = 'email';
+      else if (href.indexOf('tel:') === 0) method = 'phone';
+      if (!method) return;
+      window.gtag('event', 'contact_click', {
+        method: method,
+        link_text: (link.textContent || '').trim().slice(0, 60),
+        page_path: window.location.pathname
+      });
     });
   }
 
@@ -79,19 +87,99 @@
     });
   }
 
-  function initThemeToggle() {
-    const toggle = document.getElementById('themeToggle');
-    const stored = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const initial = stored || (prefersDark ? 'dark' : 'light');
-    document.documentElement.setAttribute('data-theme', initial);
+  // The theme itself is applied by a tiny inline script in <head> before first paint
+  // (no flash). This handles the toggle: a circular reveal from the button where the
+  // View Transitions API exists, a colour cross-fade elsewhere, instant with reduced motion.
+  const THEME_MS = 1300;                              // theme reveal duration
+  const THEME_EASE = 'cubic-bezier(0.6, 0, 0.3, 1)';  // slow start (the circle's area grows fast), gentle landing
+  const FEATHER = 140;                                // soft edge width of the reveal, px
 
+  // The feathered reveal animates a registered custom property; fall back to a
+  // hard-edged clip-path circle where that is not supported.
+  let maskReady = null;
+  function canAnimateMask() {
+    if (maskReady !== null) return maskReady;
+    maskReady = false;
+    if (window.CSS && typeof CSS.registerProperty === 'function' && CSS.supports('mask-image', 'radial-gradient(#000, transparent)')) {
+      try {
+        CSS.registerProperty({ name: '--vt-r', syntax: '<length>', inherits: true, initialValue: '0px' });
+        maskReady = true;
+      } catch (e) {
+        maskReady = e && e.name === 'InvalidModificationError'; // already registered
+      }
+    }
+    return maskReady;
+  }
+
+  function initThemeToggle() {
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    if (!root.getAttribute('data-theme')) {
+      let stored = null;
+      try { stored = localStorage.getItem('theme'); } catch (e) { /* storage blocked */ }
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      root.setAttribute('data-theme', stored || (prefersDark ? 'dark' : 'light'));
+    }
     if (!toggle) return;
+
+    function syncButton() {
+      const dark = root.getAttribute('data-theme') === 'dark';
+      toggle.setAttribute('aria-pressed', dark ? 'true' : 'false');
+      toggle.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', dark ? '#131117' : '#f5f1e6');
+    }
+
+    function apply(next) {
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) { /* storage blocked */ }
+      syncButton();
+    }
+
+    syncButton();
+
+    let busy = false;
     toggle.addEventListener('click', function () {
-      const current = document.documentElement.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
+      if (busy) return;
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        apply(next);
+        return;
+      }
+
+      if (typeof document.startViewTransition === 'function') {
+        const r = toggle.getBoundingClientRect();
+        const x = r.left + r.width / 2;
+        const y = r.top + r.height / 2;
+        const radius = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
+        const soft = canAnimateMask();
+        busy = true;
+        root.style.setProperty('--vt-x', x + 'px');
+        root.style.setProperty('--vt-y', y + 'px');
+        root.classList.add('theme-vt');
+        if (soft) root.classList.add('theme-vt-soft');
+        const transition = document.startViewTransition(function () { apply(next); });
+        transition.ready.then(function () {
+          const timing = { duration: THEME_MS, easing: THEME_EASE, pseudoElement: '::view-transition-new(root)', fill: 'both' };
+          if (soft) {
+            // A circle with a feathered edge grows from the toggle (radial mask)
+            root.animate({ '--vt-r': [-FEATHER + 'px', (radius + FEATHER) + 'px'] }, timing);
+          } else {
+            root.animate({ clipPath: ['circle(0px at ' + x + 'px ' + y + 'px)', 'circle(' + radius + 'px at ' + x + 'px ' + y + 'px)'] }, timing);
+          }
+        }).catch(function () { /* transition skipped: theme is already applied */ });
+        transition.finished.finally(function () {
+          root.classList.remove('theme-vt', 'theme-vt-soft');
+          busy = false;
+        });
+        return;
+      }
+
+      // Fallback: cross-fade every colour
+      root.classList.add('theme-fade');
+      apply(next);
+      window.setTimeout(function () { root.classList.remove('theme-fade'); }, 760);
     });
   }
 
@@ -131,22 +219,6 @@
     }, { threshold: 0.4 });
 
     bars.forEach(function (bar) { observer.observe(bar); });
-  }
-
-  function initHeroEntrance() {
-    const el = document.querySelector('[data-hero-type]');
-    if (!el) return;
-    const text = el.textContent;
-    el.textContent = '';
-    el.style.opacity = '1';
-    let i = 0;
-    (function type() {
-      if (i < text.length) {
-        el.textContent += text.charAt(i);
-        i++;
-        setTimeout(type, 55);
-      }
-    })();
   }
 
   function initScrollProgress() {

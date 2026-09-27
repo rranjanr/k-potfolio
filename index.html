@@ -3,33 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function(){var d=document.documentElement,t=null;try{t=localStorage.getItem('theme')}catch(e){}if(t!=='dark'&&t!=='light'){t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}d.setAttribute('data-theme',t)})();</script>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6RFY3KT8M6"></script>
+  <!-- Google Analytics 4: events queue immediately; the library loads once the page is idle so it never delays rendering -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-6RFY3KT8M6');
+    window.addEventListener('load', function () {
+      var load = function () {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-6RFY3KT8M6';
+        document.head.appendChild(s);
+      };
+      if ('requestIdleCallback' in window) requestIdleCallback(load, { timeout: 3000 });
+      else setTimeout(load, 1500);
+    });
   </script>
 
-  <title>Vaishali Sharma, UI/UX Designer & Front-End Developer</title>
-  <meta name="description" content="Portfolio of Vaishali Sharma: a UI/UX designer and front-end developer in Biratnagar, Nepal, building e-commerce, fashion, and travel sites end to end.">
+  <title>Vaishali Sharma | Graphic Designer &amp; Social Media Marketer, Nepal</title>
+  <meta name="description" content="Graphic designer and social media marketer in Biratnagar, Nepal. Posts, reels, page handling and Meta ads (Facebook boosting) for businesses across Nepal.">
   <link rel="canonical" href="https://vaishalisharma.com.np/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Vaishali Sharma">
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Vaishali Sharma, UI/UX Designer & Front-End Developer">
-  <meta property="og:description" content="I design interfaces in Figma and build them myself in code. See recent work in e-commerce, fashion, and travel.">
+  <meta property="og:site_name" content="Vaishali Sharma">
+  <meta property="og:title" content="Vaishali Sharma | Graphic Designer &amp; Social Media Marketer, Nepal">
+  <meta property="og:description" content="Graphic designer and social media marketer in Biratnagar, Nepal. Posts, reels, page handling and Meta ads (Facebook boosting) for businesses across Nepal.">
   <meta property="og:url" content="https://vaishalisharma.com.np/">
   <meta property="og:image" content="https://vaishalisharma.com.np/assets/images/og/home.jpg">
+  <meta property="og:image:alt" content="Vaishali Sharma | Graphic Designer &amp; Social Media Marketer, Nepal">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Vaishali Sharma, UI/UX Designer & Front-End Developer">
-  <meta name="twitter:description" content="I design interfaces in Figma and build them myself in code. See recent work in e-commerce, fashion, and travel.">
+  <meta name="twitter:title" content="Vaishali Sharma | Graphic Designer &amp; Social Media Marketer, Nepal">
+  <meta name="twitter:description" content="Graphic designer and social media marketer in Biratnagar, Nepal. Posts, reels, page handling and Meta ads (Facebook boosting) for businesses across Nepal.">
   <meta name="twitter:image" content="https://vaishalisharma.com.np/assets/images/og/home.jpg">
 
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-96x96.png" sizes="96x96">
   <link rel="shortcut icon" href="/favicon.ico">
@@ -38,9 +51,8 @@
   <meta name="apple-mobile-web-app-title" content="Vaishali Sharma">
   <meta name="theme-color" content="#f5f1e6">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
 
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/components.css">
@@ -50,25 +62,233 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Vaishali Sharma",
-    "url": "https://vaishalisharma.com.np/",
-    "image": "https://vaishalisharma.com.np/assets/images/profile/pp.jpg",
-    "jobTitle": "UI/UX Designer & Front-End Developer",
-    "email": "mailto:khushee.m.sharma@gmail.com",
-    "address": { "@type": "PostalAddress", "addressLocality": "Biratnagar", "addressCountry": "NP" },
-    "sameAs": ["https://linkedin.com/in/vaishali-sharma01"]
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://vaishalisharma.com.np/#website",
+        "url": "https://vaishalisharma.com.np/",
+        "name": "Vaishali Sharma",
+        "inLanguage": "en",
+        "publisher": {
+          "@id": "https://vaishalisharma.com.np/#person"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://vaishalisharma.com.np/#person",
+        "name": "Vaishali Sharma",
+        "url": "https://vaishalisharma.com.np/",
+        "image": "https://vaishalisharma.com.np/assets/images/profile/pp.jpg",
+        "jobTitle": "Graphic Designer & Social Media Marketer",
+        "description": "Graphic designer and social media marketer based in Biratnagar, Nepal. Designs social media content, manages Facebook and Instagram pages, and runs Meta ads for Nepali businesses.",
+        "email": "mailto:khushee.m.sharma@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Biratnagar",
+          "addressRegion": "Koshi Province",
+          "addressCountry": "NP"
+        },
+        "homeLocation": {
+          "@type": "City",
+          "name": "Biratnagar"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Tribhuvan University"
+        },
+        "knowsAbout": [
+          "Graphic design",
+          "Social media design",
+          "Social media management",
+          "Content creation",
+          "Short-form video editing",
+          "AI video generation",
+          "Script writing",
+          "Meta Ads",
+          "Facebook boosting",
+          "Instagram marketing",
+          "Lead handling",
+          "Brand identity",
+          "Canva",
+          "Adobe Illustrator",
+          "Figma",
+          "CapCut",
+          "UI/UX design"
+        ],
+        "knowsLanguage": [
+          "en",
+          "ne"
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/vaishali-sharma01",
+          "https://www.tiktok.com/@khuuushiiiiii"
+        ]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://vaishalisharma.com.np/#business",
+        "name": "Vaishali Sharma: Graphic Design & Social Media Marketing",
+        "url": "https://vaishalisharma.com.np/",
+        "image": "https://vaishalisharma.com.np/assets/images/og/home.jpg",
+        "logo": "https://vaishalisharma.com.np/assets/images/favicon/web-app-manifest-512x512.png",
+        "description": "Freelance graphic design, social media management and Meta ads (Facebook and Instagram boosting) for businesses in Biratnagar, Kathmandu and across Nepal.",
+        "email": "mailto:khushee.m.sharma@gmail.com",
+        "founder": {
+          "@id": "https://vaishalisharma.com.np/#person"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Biratnagar",
+          "addressRegion": "Koshi Province",
+          "addressCountry": "NP"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 26.4525,
+          "longitude": 87.2718
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Biratnagar"
+          },
+          {
+            "@type": "City",
+            "name": "Itahari"
+          },
+          {
+            "@type": "City",
+            "name": "Dharan"
+          },
+          {
+            "@type": "City",
+            "name": "Inaruwa"
+          },
+          {
+            "@type": "City",
+            "name": "Damak"
+          },
+          {
+            "@type": "City",
+            "name": "Birtamod"
+          },
+          {
+            "@type": "City",
+            "name": "Kathmandu"
+          },
+          {
+            "@type": "City",
+            "name": "Lalitpur"
+          },
+          {
+            "@type": "City",
+            "name": "Bhaktapur"
+          },
+          {
+            "@type": "Country",
+            "name": "Nepal"
+          }
+        ],
+        "knowsAbout": [
+          "Graphic design",
+          "Social media design",
+          "Social media management",
+          "Content creation",
+          "Short-form video editing",
+          "AI video generation",
+          "Script writing",
+          "Meta Ads",
+          "Facebook boosting",
+          "Instagram marketing",
+          "Lead handling",
+          "Brand identity"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "email": "khushee.m.sharma@gmail.com",
+          "url": "https://wa.me/9779827303983?text=Hi%20Vaishali%2C%20I%20found%20your%20website%20and%20want%20to%20talk%20about%20a%20project.",
+          "availableLanguage": [
+            "English",
+            "Nepali"
+          ]
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/vaishali-sharma01",
+          "https://www.tiktok.com/@khuuushiiiiii"
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://vaishalisharma.com.np/#webpage",
+        "url": "https://vaishalisharma.com.np/",
+        "name": "Vaishali Sharma | Graphic Designer & Social Media Marketer, Nepal",
+        "description": "Graphic designer and social media marketer in Biratnagar, Nepal. Posts, reels, page handling and Meta ads (Facebook boosting) for businesses across Nepal.",
+        "isPartOf": {
+          "@id": "https://vaishalisharma.com.np/#website"
+        },
+        "about": {
+          "@id": "https://vaishalisharma.com.np/#business"
+        },
+        "inLanguage": "en",
+        "dateModified": "2026-09-27",
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://vaishalisharma.com.np/assets/images/og/home.jpg"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://vaishalisharma.com.np/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Do you only work with businesses in Biratnagar?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. I am based in Biratnagar and meet clients in person around Biratnagar, Itahari, Dharan and nearby towns, but I also manage pages remotely for businesses in Kathmandu and the rest of Nepal."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much does social media management cost?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It depends on how many posts and reels you need each month, whether ads and inbox replies are included, and your ad budget. Send me your page link and goals and I will send a quote within 1 to 2 business days."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you run Facebook boosting and Meta ads for my page?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. I run simple boosts and full Meta Ads Manager campaigns for messages, leads and website visits, and I reply to the leads they bring in. See Meta ads and Facebook boosting."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you write captions and posts in Nepali?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. I write captions, reel scripts and festival greetings in Nepali, English or a mix of both, depending on who your customers are."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I have to give you my Facebook password?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. I work through partner access in Meta Business Suite, so your page and ad account stay yours and you can remove my access at any time."
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-
-  <!-- Loading Screen -->
-  <div class="loading-screen" id="loadingScreen">
-    <div class="loading-mark">VS</div>
-    <div class="loading-bar"></div>
-  </div>
 
   <div class="scroll-progress" id="scrollProgress"></div>
 
@@ -80,12 +300,12 @@
         Vaishali Sharma
       </a>
       <ul class="nav-menu" id="navMenu">
-        <li><a href="/" class="nav-link active">Home</a></li>
-        <li><a href="/about.html" class="nav-link">About</a></li>
+        <li><a href="/" class="nav-link active" aria-current="page">Home</a></li>
+        <li><a href="/services/" class="nav-link">Services</a></li>
         <li><a href="/portfolio/" class="nav-link">Portfolio</a></li>
-        <li><a href="/resume/" class="nav-link">Resume</a></li>
+        <li><a href="/about" class="nav-link">About</a></li>
         <li><a href="/blog/" class="nav-link">Blog</a></li>
-        <li><a href="/contact.html" class="nav-link">Contact</a></li>
+        <li><a href="/contact" class="nav-link">Contact</a></li>
       </ul>
       <div class="nav-actions">
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
@@ -104,139 +324,134 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-text">
-          <span class="eyebrow">Biratnagar, Nepal, open to freelance work</span>
+          <span class="eyebrow">Biratnagar, Nepal &middot; Taking new clients</span>
           <h1 class="hero-title">
             <span class="line-1">Hi, I'm</span>
-            <span class="name" data-hero-type>Vaishali Sharma</span>
-            <span class="role">UI/UX Designer &amp; Front-End Developer</span>
+            <span class="name">Vaishali Sharma</span>
+            <span class="role">Graphic Designer &amp; Social Media Marketer in Biratnagar, Nepal</span>
           </h1>
           <p class="hero-desc">
-            I design interfaces in Figma and build them myself in code, mostly for
-            e-commerce, fashion, and travel brands that want their site to look as
-            good as their product photography.
+            I design social media posts, reels and brand graphics, run Facebook and
+            Instagram pages day to day, and set up Meta ads that bring in real messages
+            and leads for Nepali businesses.
           </p>
           <div class="hero-actions">
-            <a href="/portfolio/" class="btn btn-primary">View My Work</a>
-            <a href="/contact.html" class="btn btn-glass">Get In Touch</a>
+            <a href="/contact" class="btn btn-primary">Hire Me Now</a>
+            <a href="https://wa.me/9779827303983?text=Hi%20Vaishali%2C%20I%20found%20your%20website%20and%20want%20to%20talk%20about%20a%20project." class="btn btn-whatsapp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.17-3.48-8.41Z"/></svg> Chat on WhatsApp</a>
           </div>
           <div class="hero-stats">
             <div class="stat-item">
-              <span class="stat-number" data-count-to="12" data-suffix="+">0+</span>
-              <span class="stat-label">Projects Shipped</span>
+              <span class="stat-number" data-count-to="1" data-suffix="+">1+</span>
+              <span class="stat-label">Year of Graphic Design</span>
             </div>
             <div class="stat-item">
-              <span class="stat-number" data-count-to="3" data-suffix="+">0+</span>
-              <span class="stat-label">Years Experience</span>
+              <span class="stat-number" data-count-to="2">2</span>
+              <span class="stat-label">Brand Accounts Managed</span>
             </div>
             <div class="stat-item">
-              <span class="stat-number" data-count-to="100" data-suffix="%">0%</span>
-              <span class="stat-label">Client Satisfaction</span>
+              <span class="stat-number" data-count-to="6">6</span>
+              <span class="stat-label">Web Interfaces Designed</span>
             </div>
           </div>
         </div>
-        <div class="hero-visual reveal-on-scroll">
+        <div class="hero-visual">
           <div class="hero-frame glass">
-            <img src="/assets/images/profile/pp.jpg" alt="Portrait of Vaishali Sharma, UI/UX designer" width="380" height="507" fetchpriority="high">
+            <picture><source srcset="/assets/images/profile/pp-480.webp 480w, /assets/images/profile/pp-760.webp 760w, /assets/images/profile/pp.webp 1200w" sizes="(max-width: 520px) 84vw, 420px" type="image/webp"><img src="/assets/images/profile/pp.jpg" alt="Vaishali Sharma, graphic designer and social media marketer in Biratnagar, Nepal" width="380" height="507" fetchpriority="high"></picture>
           </div>
           <div class="hero-badge glass">
             <span class="eyebrow">Focus</span>
-            <strong>Product &amp; Web Design</strong>
+            <strong>Social Media &amp; Meta Ads</strong>
           </div>
           <div class="hero-orbit glass"><span class="dot"></span> Open to work</div>
         </div>
       </div>
     </section>
 
-    <!-- Featured Work -->
-    <section class="section" id="work">
+    <!-- Services -->
+    <section class="section" id="services">
       <div class="container">
-        <div class="featured-header">
-          <div class="section-header reveal-on-scroll">
-            <span class="eyebrow">Selected Work</span>
-            <h2>Four projects, four different problems</h2>
-            <p>A furniture store, a sneaker brand, a fashion storefront, and a travel blog. Each one had a different job to do. See the full write-up on my <a href="/blog/ui-ux-design-process-case-study-walkthrough.html">design process</a> for how I approach each one.</p>
-          </div>
-          <a href="/portfolio/" class="btn btn-glass btn-sm">View all work</a>
+        <div class="section-header reveal-on-scroll">
+          <span class="eyebrow">What I Do</span>
+          <h2>Design, page handling and ads, from one person</h2>
+          <p>Most small businesses in Nepal need three things from social media: posts that look professional, someone to keep the page active, and ads that bring customers. I do all three, so nothing gets lost between a designer, a page handler and an ads person.</p>
         </div>
-
-        <div class="portfolio-grid">
-          <article class="portfolio-card card reveal-on-scroll">
-            <a href="/portfolio/homeloom.html" class="thumb-wrap">
-              <img src="/assets/images/portfolio/homeloom/thumb.jpg" alt="HomeLoom furniture e-commerce homepage with warm tan hero and product grid" width="800" height="600" loading="lazy">
-            </a>
-            <div class="card-body">
-              <span class="tag">E-commerce</span>
-              <h3><a href="/portfolio/homeloom.html">HomeLoom</a></h3>
-              <p>A furniture store site built around clean product photography and a shop-to-cart flow that doesn't get in the way.</p>
-              <a href="/portfolio/homeloom.html" class="card-link">Read case study
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </a>
-            </div>
+        <div class="service-grid">
+          <article class="service-card card reveal-on-scroll">
+            <span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.59 7.59"/><circle cx="11" cy="11" r="2"/></svg></span>
+            <h3>Graphic Design</h3>
+            <p>Social media posts, festival greetings, product posters, logos and brand kits that look like they belong to one business.</p>
+            <ul class="check-list">
+              <li>Facebook and Instagram post and story designs</li>
+              <li>Festival posts for Dashain, Tihar, Teej and Chhath</li>
+              <li>Logos, posters, menus and flyers</li>
+            </ul>
+            <a href="/services/graphic-design" class="card-link">Graphic design services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </article>
-
-          <article class="portfolio-card card reveal-on-scroll">
-            <a href="/portfolio/streets-to-runways.html" class="thumb-wrap">
-              <img src="/assets/images/portfolio/streets-to-runways/thumb.jpg" alt="Streets to Runways sneaker brand landing page hero with product carousel" width="800" height="600" loading="lazy">
-            </a>
-            <div class="card-body">
-              <span class="tag">Landing Page</span>
-              <h3><a href="/portfolio/streets-to-runways.html">Streets to Runways</a></h3>
-              <p>A sneaker-brand concept with an interactive hero carousel and a sign-in flow I cut from 5 steps down to 3.</p>
-              <a href="/portfolio/streets-to-runways.html" class="card-link">Read case study
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </a>
-            </div>
+          <article class="service-card card reveal-on-scroll">
+            <span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg></span>
+            <h3>Social Media Management</h3>
+            <p>I plan, design, write and post your content, edit reels, and reply to comments and messages so the page stays active.</p>
+            <ul class="check-list">
+              <li>Monthly content calendar</li>
+              <li>Reels, short videos and AI-assisted video</li>
+              <li>Captions and scripts in Nepali and English</li>
+            </ul>
+            <a href="/services/social-media-management" class="card-link">Social media management <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </article>
-
-          <article class="portfolio-card card reveal-on-scroll">
-            <a href="/portfolio/glam.html" class="thumb-wrap">
-              <img src="/assets/images/portfolio/glam/thumb.jpg" alt="Glam fashion e-commerce landing page with dusty blue hero and product carousel" width="800" height="600" loading="lazy">
-            </a>
-            <div class="card-body">
-              <span class="tag">Fashion</span>
-              <h3><a href="/portfolio/glam.html">Glam</a></h3>
-              <p>A fashion storefront designed to make browsing feel like flipping through a lookbook, not a spreadsheet.</p>
-              <a href="/portfolio/glam.html" class="card-link">Read case study
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </a>
-            </div>
-          </article>
-
-          <article class="portfolio-card card reveal-on-scroll">
-            <a href="/portfolio/wanderlust-diaries.html" class="thumb-wrap">
-              <img src="/assets/images/portfolio/wanderlust/thumb.jpg" alt="WanderLust Diaries travel blog homepage with full-bleed beach photography" width="800" height="600" loading="lazy">
-            </a>
-            <div class="card-body">
-              <span class="tag">Travel / Blog</span>
-              <h3><a href="/portfolio/wanderlust-diaries.html">WanderLust Diaries</a></h3>
-              <p>A travel blog concept where big photography carries the story and the layout stays out of its way.</p>
-              <a href="/portfolio/wanderlust-diaries.html" class="card-link">Read case study
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </a>
-            </div>
+          <article class="service-card card reveal-on-scroll">
+            <span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span>
+            <h3>Meta Ads &amp; Facebook Boosting</h3>
+            <p>Boosts and Ads Manager campaigns aimed at messages, leads and store visits, not just likes, plus replies to the leads they bring in.</p>
+            <ul class="check-list">
+              <li>Audience targeting by city and interest</li>
+              <li>Message and lead campaigns</li>
+              <li>Simple reports on what the money brought in</li>
+            </ul>
+            <a href="/services/meta-ads" class="card-link">Meta ads and boosting <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </article>
         </div>
+        <p class="reveal-on-scroll" style="margin-top: var(--sp-6);">Need a website as well? I studied computer applications and still design and build sites. See the <a href="/portfolio/">web design work in my portfolio</a>.</p>
       </div>
     </section>
 
-    <!-- About teaser -->
+    <!-- Current work -->
     <section class="section" style="background: var(--bg-alt);">
       <div class="container about-teaser">
-        <div class="about-teaser-image reveal-on-scroll">
-          <img src="/assets/images/profile/pp.jpg" alt="Vaishali Sharma at work" width="500" height="625" loading="lazy">
-        </div>
+        <a href="/portfolio/rouniyar-international-bath-nepal" class="about-teaser-image reveal-on-scroll" style="aspect-ratio: 4 / 3; border: 1.5px solid var(--border-strong); box-shadow: var(--hard-shadow-sm);" aria-hidden="true" tabindex="-1">
+          <svg viewBox="0 0 400 300" width="100%" height="100%" role="img" aria-label="Illustration of two Instagram brand accounts, Rouniyar International and Bath Nepal">
+                <rect width="400" height="300" fill="var(--accent-soft)"/>
+                <rect x="40" y="36" width="150" height="228" rx="18" fill="var(--bg-raised)" stroke="var(--border-strong)" stroke-width="1.5"/>
+                <circle cx="70" cy="68" r="14" fill="var(--accent)"/>
+                <text x="92" y="72" font-size="11" font-weight="700" fill="var(--text-primary)" style="font-family:var(--font-body)">rouniyar</text>
+                <rect x="54" y="96" width="38" height="38" rx="4" fill="var(--accent)" opacity="0.85"/><rect x="96" y="96" width="38" height="38" rx="4" fill="var(--stamp)" opacity="0.7"/><rect x="138" y="96" width="38" height="38" rx="4" fill="var(--accent)" opacity="0.5"/>
+                <rect x="54" y="138" width="38" height="38" rx="4" fill="var(--stamp)" opacity="0.5"/><rect x="96" y="138" width="38" height="38" rx="4" fill="var(--accent)" opacity="0.7"/><rect x="138" y="138" width="38" height="38" rx="4" fill="var(--stamp)" opacity="0.85"/>
+                <rect x="54" y="180" width="38" height="38" rx="4" fill="var(--accent)" opacity="0.6"/><rect x="96" y="180" width="38" height="38" rx="4" fill="var(--stamp)" opacity="0.6"/><rect x="138" y="180" width="38" height="38" rx="4" fill="var(--accent)" opacity="0.9"/>
+                <rect x="210" y="36" width="150" height="228" rx="18" fill="var(--bg-raised)" stroke="var(--border-strong)" stroke-width="1.5"/>
+                <circle cx="240" cy="68" r="14" fill="var(--stamp)"/>
+                <text x="262" y="72" font-size="11" font-weight="700" fill="var(--text-primary)" style="font-family:var(--font-body)">bathnepal</text>
+                <rect x="224" y="96" width="38" height="38" rx="4" fill="var(--stamp)" opacity="0.8"/><rect x="266" y="96" width="38" height="38" rx="4" fill="var(--accent)" opacity="0.55"/><rect x="308" y="96" width="38" height="38" rx="4" fill="var(--stamp)" opacity="0.5"/>
+                <rect x="224" y="138" width="38" height="38" rx="4" fill="var(--accent)" opacity="0.7"/><rect x="266" y="138" width="38" height="38" rx="4" fill="var(--stamp)" opacity="0.65"/><rect x="308" y="138" width="38" height="38" rx="4" fill="var(--accent)" opacity="0.85"/>
+                <rect x="224" y="180" width="38" height="38" rx="4" fill="var(--stamp)" opacity="0.9"/><rect x="266" y="180" width="38" height="38" rx="4" fill="var(--accent)" opacity="0.6"/><rect x="308" y="180" width="38" height="38" rx="4" fill="var(--stamp)" opacity="0.6"/>
+              </svg>
+        </a>
         <div class="reveal-on-scroll">
-          <span class="eyebrow">About Me</span>
-          <h2>Trained in code, tested in a real product team</h2>
+          <span class="eyebrow">Current Work</span>
+          <h2>Running social media for Rouniyar International and Bath Nepal</h2>
           <p style="margin-top: var(--sp-4); font-size: var(--fs-md);">
-            I have a BCA in computer applications and spent a year designing inside an
-            actual dev team at Clove I.T., not just in a portfolio vacuum. I built a
-            20+ element component library there and ran the usability tests myself,
-            so I know what breaks when a design meets a browser. Read the
-            <a href="/about.html">full story</a> or see what I've been building on the
-            <a href="/blog/">blog</a>.
+            Rouniyar International is the authorized importer and distributor of Dual Copper and
+            Discover water pump motors, and Bath Nepal is its bathroom products brand. I handle
+            both accounts: festival greetings, product posts, reels, wholesale promotions,
+            scripts, AI-generated video, Meta ads, and replying to the leads that come in.
           </p>
-          <a href="/about.html" class="btn btn-primary" style="margin-top: var(--sp-6);">More about me</a>
+          <ul class="check-list" style="margin-top: var(--sp-4);">
+            <li>Posting almost every day across both accounts</li>
+            <li>Bilingual Nepali and English content</li>
+            <li>Ads and lead replies handled by the same person who made the post</li>
+          </ul>
+          <div class="hero-actions">
+            <a href="/portfolio/rouniyar-international-bath-nepal" class="btn btn-primary">Read the case study</a>
+            <a href="/about" class="btn btn-glass">More about me</a>
+          </div>
         </div>
       </div>
     </section>
@@ -244,65 +459,204 @@
     <!-- Process -->
     <section class="section">
       <div class="container">
-        <div class="section-header center reveal-on-scroll" style="margin-left:auto;margin-right:auto;">
+        <div class="section-header center reveal-on-scroll">
           <span class="eyebrow" style="justify-content:center;">How I Work</span>
-          <h2>Four stages, no shortcuts</h2>
-          <p>Every project, big or small, goes through the same four stages before it ships.</p>
+          <h2>Four steps, every month</h2>
+          <p>The same routine I use for my current clients, so you always know what is being posted and why.</p>
         </div>
         <div class="process-grid">
           <div class="process-card card reveal-on-scroll">
             <span class="step-num">01</span>
-            <h4>Discover</h4>
-            <p>Understand the users, the goals, and the constraints before opening Figma.</p>
+            <h3>Brief &amp; audit</h3>
+            <p>I look at your page, your products and your competitors, and ask who you want to reach.</p>
           </div>
           <div class="process-card card reveal-on-scroll">
             <span class="step-num">02</span>
-            <h4>Design</h4>
-            <p>Wireframe first, then build high-fidelity screens with real content and a component system.</p>
+            <h3>Content plan</h3>
+            <p>A monthly calendar with product posts, reels, offers and festival dates, shared before anything goes live.</p>
           </div>
           <div class="process-card card reveal-on-scroll">
             <span class="step-num">03</span>
-            <h4>Prototype</h4>
-            <p>Build an interactive prototype and test the flow before a line of code gets written.</p>
+            <h3>Design &amp; publish</h3>
+            <p>Posts, stories and reels designed in your brand colors, with captions in Nepali or English.</p>
           </div>
           <div class="process-card card reveal-on-scroll">
             <span class="step-num">04</span>
-            <h4>Build</h4>
-            <p>Hand-code a fast, accessible front-end so what ships matches what was designed.</p>
+            <h3>Ads, replies &amp; report</h3>
+            <p>I boost what works, answer comments and messages, and send a short report on results.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Blog teaser -->
+    <!-- Web work -->
+    <section class="section" id="work" style="background: var(--bg-alt);">
+      <div class="container">
+        <div class="featured-header">
+          <div class="section-header reveal-on-scroll">
+            <span class="eyebrow">Web &amp; UI Design</span>
+            <h2>Websites I have designed</h2>
+            <p>Before social media, I trained in UI/UX design and front-end development. These four projects show that side of my work, from the <a href="/blog/ui-ux-design-process-case-study-walkthrough">design process</a> to the finished page.</p>
+          </div>
+          <a href="/portfolio/" class="btn btn-glass btn-sm">View all work</a>
+        </div>
+
+        <div class="portfolio-grid">
+          <article class="portfolio-card card reveal-on-scroll">
+            <a href="/portfolio/homeloom" class="thumb-wrap">
+              <picture><source srcset="/assets/images/portfolio/homeloom/thumb.webp" type="image/webp"><img src="/assets/images/portfolio/homeloom/thumb.jpg" alt="HomeLoom furniture e-commerce homepage with warm tan hero and product grid" width="800" height="600" loading="lazy"></picture>
+            </a>
+            <div class="card-body">
+              <span class="tag">E-commerce</span>
+              <h3><a href="/portfolio/homeloom">HomeLoom</a></h3>
+              <p>A furniture store site built around clean product photography and a simple shop-to-cart flow.</p>
+              <a href="/portfolio/homeloom" class="card-link">Read case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </article>
+
+          <article class="portfolio-card card reveal-on-scroll">
+            <a href="/portfolio/streets-to-runways" class="thumb-wrap">
+              <picture><source srcset="/assets/images/portfolio/streets-to-runways/thumb.webp" type="image/webp"><img src="/assets/images/portfolio/streets-to-runways/thumb.jpg" alt="Streets to Runways sneaker brand landing page hero with product carousel" width="800" height="600" loading="lazy"></picture>
+            </a>
+            <div class="card-body">
+              <span class="tag">Landing Page</span>
+              <h3><a href="/portfolio/streets-to-runways">Streets to Runways</a></h3>
+              <p>A sneaker-brand concept with an interactive hero carousel and a sign-in flow cut from 5 steps to 3.</p>
+              <a href="/portfolio/streets-to-runways" class="card-link">Read case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </article>
+
+          <article class="portfolio-card card reveal-on-scroll">
+            <a href="/portfolio/glam" class="thumb-wrap">
+              <picture><source srcset="/assets/images/portfolio/glam/thumb.webp" type="image/webp"><img src="/assets/images/portfolio/glam/thumb.jpg" alt="Glam fashion e-commerce landing page with dusty blue hero and product carousel" width="800" height="600" loading="lazy"></picture>
+            </a>
+            <div class="card-body">
+              <span class="tag">Fashion</span>
+              <h3><a href="/portfolio/glam">Glam</a></h3>
+              <p>A fashion storefront designed to make browsing feel like flipping through a lookbook.</p>
+              <a href="/portfolio/glam" class="card-link">Read case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </article>
+
+          <article class="portfolio-card card reveal-on-scroll">
+            <a href="/portfolio/wanderlust-diaries" class="thumb-wrap">
+              <picture><source srcset="/assets/images/portfolio/wanderlust/thumb.webp" type="image/webp"><img src="/assets/images/portfolio/wanderlust/thumb.jpg" alt="WanderLust Diaries travel blog homepage with full-bleed beach photography" width="800" height="600" loading="lazy"></picture>
+            </a>
+            <div class="card-body">
+              <span class="tag">Travel / Blog</span>
+              <h3><a href="/portfolio/wanderlust-diaries">WanderLust Diaries</a></h3>
+              <p>A travel blog concept where big photography carries the story and the layout stays out of its way.</p>
+              <a href="/portfolio/wanderlust-diaries" class="card-link">Read case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Areas -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="eyebrow">Where I Work</span>
+          <h2>Based in Biratnagar, working with businesses across Nepal</h2>
+          <p>I meet clients in person around Biratnagar and eastern Nepal, and work remotely with businesses in Kathmandu Valley and the rest of the country over WhatsApp, calls and shared folders.</p>
+        </div>
+        <div class="grid grid-2">
+          <a href="/biratnagar" class="service-card card reveal-on-scroll">
+            <h3>Biratnagar &amp; eastern Nepal</h3>
+            <p>Graphic design, social media and Meta ads for shops, clinics, restaurants, schools and distributors in Biratnagar, Itahari, Dharan, Inaruwa, Damak and Birtamod.</p>
+            <span class="card-link">Biratnagar services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a href="/kathmandu" class="service-card card reveal-on-scroll">
+            <h3>Kathmandu Valley</h3>
+            <p>Remote social media management and ads for businesses in Kathmandu, Lalitpur and Bhaktapur, with the same weekly routine and reporting.</p>
+            <span class="card-link">Kathmandu services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
     <section class="section" style="background: var(--bg-alt);">
+      <div class="container">
+        <div class="section-header center reveal-on-scroll">
+          <span class="eyebrow" style="justify-content:center;">FAQ</span>
+          <h2>Common questions from Nepali businesses</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Do you only work with businesses in Biratnagar?</summary>
+            <div class="faq-answer"><p>No. I am based in Biratnagar and meet clients in person around Biratnagar, Itahari, Dharan and nearby towns, but I also manage pages remotely for businesses in <a href="/kathmandu">Kathmandu</a> and the rest of Nepal.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>How much does social media management cost?</summary>
+            <div class="faq-answer"><p>It depends on how many posts and reels you need each month, whether ads and inbox replies are included, and your ad budget. Send me your page link and goals and I will send a quote within 1 to 2 business days.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Can you run Facebook boosting and Meta ads for my page?</summary>
+            <div class="faq-answer"><p>Yes. I run simple boosts and full Meta Ads Manager campaigns for messages, leads and website visits, and I reply to the leads they bring in. See <a href="/services/meta-ads">Meta ads and Facebook boosting</a>.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Do you write captions and posts in Nepali?</summary>
+            <div class="faq-answer"><p>Yes. I write captions, reel scripts and festival greetings in Nepali, English or a mix of both, depending on who your customers are.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Do I have to give you my Facebook password?</summary>
+            <div class="faq-answer"><p>No. I work through partner access in Meta Business Suite, so your page and ad account stay yours and you can remove my access at any time.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog teaser -->
+    <section class="section">
       <div class="container">
         <div class="featured-header">
           <div class="section-header reveal-on-scroll">
             <span class="eyebrow">From the Blog</span>
-            <h2>Writing on design and process</h2>
+            <h2>Notes on design, social media and ads</h2>
           </div>
           <a href="/blog/" class="btn btn-glass btn-sm">View all posts</a>
         </div>
         <div class="grid grid-2">
           <article class="blog-card card reveal-on-scroll">
-            <a href="/blog/ui-ux-design-process-case-study-walkthrough.html" class="thumb-wrap" style="background: var(--accent-soft);">
-              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg>
+            <a href="/blog/facebook-boost-vs-meta-ads-manager-nepal" class="thumb-wrap" style="background: var(--accent-soft);" aria-hidden="true" tabindex="-1">
+              <picture><source srcset="/assets/images/og/post-boost-vs-ads-manager.webp" type="image/webp"><img src="/assets/images/og/post-boost-vs-ads-manager.jpg" alt="" width="1200" height="630" loading="lazy"></picture>
             </a>
             <div class="card-body">
-              <span class="tag">Process</span>
-              <h3><a href="/blog/ui-ux-design-process-case-study-walkthrough.html">The UI/UX Design Process, Explained Through Real Case Studies</a></h3>
+              <span class="tag">Meta Ads</span>
+              <h3><a href="/blog/facebook-boost-vs-meta-ads-manager-nepal">Facebook Boost vs Meta Ads Manager: Which Should Nepali Businesses Use?</a></h3>
               <p class="card-meta">7 min read</p>
             </div>
           </article>
           <article class="blog-card card reveal-on-scroll">
-            <a href="/blog/glassmorphism-vs-neumorphism-vs-flat-design-2026.html" class="thumb-wrap" style="background: var(--stamp-soft);">
-              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--stamp)" stroke-width="1.5" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M3 9h18"/></svg>
+            <a href="/blog/how-to-pay-for-facebook-ads-from-nepal" class="thumb-wrap" style="background: var(--stamp-soft);" aria-hidden="true" tabindex="-1">
+              <picture><source srcset="/assets/images/og/post-pay-facebook-ads.webp" type="image/webp"><img src="/assets/images/og/post-pay-facebook-ads.jpg" alt="" width="1200" height="630" loading="lazy"></picture>
             </a>
             <div class="card-body">
-              <span class="tag stamp">UI Trends</span>
-              <h3><a href="/blog/glassmorphism-vs-neumorphism-vs-flat-design-2026.html">Glassmorphism vs. Neumorphism vs. Flat Design in 2026</a></h3>
-              <p class="card-meta">8 min read</p>
+              <span class="tag stamp">Meta Ads</span>
+              <h3><a href="/blog/how-to-pay-for-facebook-ads-from-nepal">How to Pay for Facebook Ads from Nepal (2026 Guide)</a></h3>
+              <p class="card-meta">6 min read</p>
+            </div>
+          </article>
+          <article class="blog-card card reveal-on-scroll">
+            <a href="/blog/festival-social-media-posts-nepal" class="thumb-wrap" style="background: var(--accent-soft);" aria-hidden="true" tabindex="-1">
+              <picture><source srcset="/assets/images/og/post-festival-content.webp" type="image/webp"><img src="/assets/images/og/post-festival-content.jpg" alt="" width="1200" height="630" loading="lazy"></picture>
+            </a>
+            <div class="card-body">
+              <span class="tag">Social Media</span>
+              <h3><a href="/blog/festival-social-media-posts-nepal">Festival Social Media Posts for Nepali Businesses: Dashain, Tihar, Chhath</a></h3>
+              <p class="card-meta">7 min read</p>
+            </div>
+          </article>
+          <article class="blog-card card reveal-on-scroll">
+            <a href="/blog/get-more-messages-facebook-page-nepal" class="thumb-wrap" style="background: var(--stamp-soft);" aria-hidden="true" tabindex="-1">
+              <picture><source srcset="/assets/images/og/post-more-messages.webp" type="image/webp"><img src="/assets/images/og/post-more-messages.jpg" alt="" width="1200" height="630" loading="lazy"></picture>
+            </a>
+            <div class="card-body">
+              <span class="tag stamp">Social Media</span>
+              <h3><a href="/blog/get-more-messages-facebook-page-nepal">How to Get More Messages from Your Facebook Page in Nepal</a></h3>
+              <p class="card-meta">6 min read</p>
             </div>
           </article>
         </div>
@@ -313,11 +667,11 @@
     <section class="section">
       <div class="container">
         <div class="cta-band reveal-on-scroll">
-          <h2>Got a project?</h2>
-          <p>Send me the brief and I'll tell you honestly whether I'm the right fit.</p>
+          <h2>Want more messages from Facebook and Instagram?</h2>
+          <p>Tell me about your business and I will suggest what to post and where to spend your ad budget. Every plan is quoted to fit your goals.</p>
           <div class="hero-actions">
-            <a href="/contact.html" class="btn btn-primary">Start a Conversation</a>
-            <a href="/resume/" class="btn btn-glass">View Resume</a>
+            <a href="/contact" class="btn btn-primary">Hire Me Now</a>
+            <a href="https://wa.me/9779827303983?text=Hi%20Vaishali%2C%20I%20found%20your%20website%20and%20want%20to%20talk%20about%20a%20project." class="btn btn-glass" target="_blank" rel="noopener">Book a quick call on WhatsApp</a>
           </div>
         </div>
       </div>
@@ -330,34 +684,44 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="/" class="nav-logo"><span class="mark">VS</span> Vaishali Sharma</a>
-          <p>UI/UX Designer &amp; Front-End Developer based in Biratnagar, Nepal, working with clients everywhere.</p>
+          <p>Graphic designer and social media marketer in Biratnagar, Nepal. I design posts and reels, run Facebook and Instagram pages, and manage Meta ads for businesses across Nepal.</p>
           <div class="social-row" style="margin-top: var(--sp-5);">
-            <a href="https://linkedin.com/in/vaishali-sharma01" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V8h4v1.5A5.98 5.98 0 0 1 16 8Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-            <a href="#" class="social-link" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
-            <a href="#" class="social-link" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a>
+            <a href="https://www.linkedin.com/in/vaishali-sharma01" target="_blank" rel="noopener" class="social-link" aria-label="Vaishali Sharma on LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V8h4v1.5A5.98 5.98 0 0 1 16 8Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="https://www.tiktok.com/@khuuushiiiiii" target="_blank" rel="noopener" class="social-link" aria-label="Vaishali Sharma on TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5 2.6 2.6 0 0 1-2.6-2.6 2.6 2.6 0 0 1 3.35-2.49V9.66a5.73 5.73 0 0 0-.75-.05 5.69 5.69 0 0 0-5.69 5.69A5.69 5.69 0 0 0 9.86 21a5.69 5.69 0 0 0 5.69-5.69V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3a4.3 4.3 0 0 1-3.25-1.48z"/></svg></a>
+            <a href="https://wa.me/9779827303983?text=Hi%20Vaishali%2C%20I%20found%20your%20website%20and%20want%20to%20talk%20about%20a%20project." target="_blank" rel="noopener" class="social-link" aria-label="Chat with Vaishali on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.17-3.48-8.41Z"/></svg></a>
           </div>
         </div>
-        <nav class="footer-col">
-          <h4>Site</h4>
-          <a href="/about.html">About</a>
+        <nav class="footer-col" aria-label="Services">
+          <h2>Services</h2>
+          <a href="/services/graphic-design">Graphic Design</a>
+          <a href="/services/social-media-management">Social Media Management</a>
+          <a href="/services/meta-ads">Meta Ads &amp; Facebook Boosting</a>
+          <a href="/services/">All Services</a>
+        </nav>
+        <nav class="footer-col" aria-label="Site">
+          <h2>Site</h2>
+          <a href="/about">About</a>
           <a href="/portfolio/">Portfolio</a>
           <a href="/resume/">Resume</a>
           <a href="/blog/">Blog</a>
-          <a href="/contact.html">Contact</a>
+          <a href="/contact">Contact</a>
         </nav>
         <div class="footer-col">
-          <h4>Get in touch</h4>
+          <h2>Get in touch</h2>
           <a href="mailto:khushee.m.sharma@gmail.com">khushee.m.sharma@gmail.com</a>
-          <span style="display:block;padding:var(--sp-1) 0;font-size:var(--fs-sm);color:var(--text-secondary);">Biratnagar, Nepal</span>
+          <a href="https://wa.me/9779827303983?text=Hi%20Vaishali%2C%20I%20found%20your%20website%20and%20want%20to%20talk%20about%20a%20project." target="_blank" rel="noopener">WhatsApp me</a>
+          <a href="/biratnagar">Biratnagar, Koshi Province</a>
+          <a href="/kathmandu">Serving Kathmandu Valley</a>
         </div>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2026 Vaishali Sharma. All rights reserved.</p>
-        <p>Designed &amp; built by Vaishali Sharma</p>
+        <p>Graphic design, social media &amp; Meta ads in Nepal</p>
       </div>
     </div>
   </footer>
 
+  <a class="wa-fab" href="https://wa.me/9779827303983?text=Hi%20Vaishali%2C%20I%20found%20your%20website%20and%20want%20to%20talk%20about%20a%20project." target="_blank" rel="noopener" aria-label="Chat with Vaishali on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.17-3.48-8.41Z"/></svg><span class="wa-label">WhatsApp</span></a>
   <button class="fab-button" id="backToTop" aria-label="Back to top">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
   </button>

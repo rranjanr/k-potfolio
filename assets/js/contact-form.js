@@ -73,6 +73,13 @@
     });
 
     function showSuccess() {
+      if (typeof window.gtag === 'function') {
+        const service = form.querySelector('[name="service"]');
+        window.gtag('event', 'generate_lead', {
+          method: 'contact_form',
+          service: service && service.value ? service.value : 'not specified'
+        });
+      }
       form.style.display = 'none';
       if (successPanel) successPanel.classList.add('visible');
     }

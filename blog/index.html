@@ -3,33 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function(){var d=document.documentElement,t=null;try{t=localStorage.getItem('theme')}catch(e){}if(t!=='dark'&&t!=='light'){t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}d.setAttribute('data-theme',t)})();</script>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6RFY3KT8M6"></script>
+  <!-- Google Analytics 4: events queue immediately; the library loads once the page is idle so it never delays rendering -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-6RFY3KT8M6');
+    window.addEventListener('load', function () {
+      var load = function () {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-6RFY3KT8M6';
+        document.head.appendChild(s);
+      };
+      if ('requestIdleCallback' in window) requestIdleCallback(load, { timeout: 3000 });
+      else setTimeout(load, 1500);
+    });
   </script>
 
-  <title>Blog: Vaishali Sharma | UI/UX Designer & Front-End Developer</title>
-  <meta name="description" content="Notes on UI/UX design process, case studies, and interface trends from Vaishali Sharma, a UI/UX designer and front-end developer.">
+  <title>Blog: Social Media, Meta Ads &amp; Design Tips for Nepal</title>
+  <meta name="description" content="Practical notes on social media marketing, Facebook and Instagram ads, and design for businesses in Nepal, by Vaishali Sharma.">
   <link rel="canonical" href="https://vaishalisharma.com.np/blog/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Vaishali Sharma">
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Blog: Vaishali Sharma">
-  <meta property="og:description" content="Notes on UI/UX design process, case studies, and interface trends from Vaishali Sharma.">
+  <meta property="og:site_name" content="Vaishali Sharma">
+  <meta property="og:title" content="Blog: Social Media, Meta Ads &amp; Design Tips for Nepal">
+  <meta property="og:description" content="Practical notes on social media marketing, Facebook and Instagram ads, and design for businesses in Nepal, by Vaishali Sharma.">
   <meta property="og:url" content="https://vaishalisharma.com.np/blog/">
-  <meta property="og:image" content="https://vaishalisharma.com.np/assets/images/og/home.jpg">
+  <meta property="og:image" content="https://vaishalisharma.com.np/assets/images/og/blog.jpg">
+  <meta property="og:image:alt" content="Blog: Social Media, Meta Ads &amp; Design Tips for Nepal">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Blog: Vaishali Sharma">
-  <meta name="twitter:description" content="Notes on UI/UX design process, case studies, and interface trends from Vaishali Sharma.">
-  <meta name="twitter:image" content="https://vaishalisharma.com.np/assets/images/og/home.jpg">
+  <meta name="twitter:title" content="Blog: Social Media, Meta Ads &amp; Design Tips for Nepal">
+  <meta name="twitter:description" content="Practical notes on social media marketing, Facebook and Instagram ads, and design for businesses in Nepal, by Vaishali Sharma.">
+  <meta name="twitter:image" content="https://vaishalisharma.com.np/assets/images/og/blog.jpg">
 
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-96x96.png" sizes="96x96">
   <link rel="shortcut icon" href="/favicon.ico">
@@ -38,9 +51,8 @@
   <meta name="apple-mobile-web-app-title" content="Vaishali Sharma">
   <meta name="theme-color" content="#f5f1e6">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
 
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/components.css">
@@ -49,24 +61,208 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "Blog: Vaishali Sharma",
-    "url": "https://vaishalisharma.com.np/blog/",
-    "about": {
-      "@type": "Person",
-      "name": "Vaishali Sharma"
-    }
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://vaishalisharma.com.np/#website",
+        "url": "https://vaishalisharma.com.np/",
+        "name": "Vaishali Sharma",
+        "inLanguage": "en",
+        "publisher": {
+          "@id": "https://vaishalisharma.com.np/#person"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://vaishalisharma.com.np/#person",
+        "name": "Vaishali Sharma",
+        "url": "https://vaishalisharma.com.np/",
+        "image": "https://vaishalisharma.com.np/assets/images/profile/pp.jpg",
+        "jobTitle": "Graphic Designer & Social Media Marketer",
+        "description": "Graphic designer and social media marketer based in Biratnagar, Nepal. Designs social media content, manages Facebook and Instagram pages, and runs Meta ads for Nepali businesses.",
+        "email": "mailto:khushee.m.sharma@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Biratnagar",
+          "addressRegion": "Koshi Province",
+          "addressCountry": "NP"
+        },
+        "homeLocation": {
+          "@type": "City",
+          "name": "Biratnagar"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Tribhuvan University"
+        },
+        "knowsAbout": [
+          "Graphic design",
+          "Social media design",
+          "Social media management",
+          "Content creation",
+          "Short-form video editing",
+          "AI video generation",
+          "Script writing",
+          "Meta Ads",
+          "Facebook boosting",
+          "Instagram marketing",
+          "Lead handling",
+          "Brand identity",
+          "Canva",
+          "Adobe Illustrator",
+          "Figma",
+          "CapCut",
+          "UI/UX design"
+        ],
+        "knowsLanguage": [
+          "en",
+          "ne"
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/vaishali-sharma01",
+          "https://www.tiktok.com/@khuuushiiiiii"
+        ]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://vaishalisharma.com.np/#business",
+        "name": "Vaishali Sharma: Graphic Design & Social Media Marketing",
+        "url": "https://vaishalisharma.com.np/",
+        "image": "https://vaishalisharma.com.np/assets/images/og/home.jpg",
+        "logo": "https://vaishalisharma.com.np/assets/images/favicon/web-app-manifest-512x512.png",
+        "description": "Freelance graphic design, social media management and Meta ads (Facebook and Instagram boosting) for businesses in Biratnagar, Kathmandu and across Nepal.",
+        "email": "mailto:khushee.m.sharma@gmail.com",
+        "founder": {
+          "@id": "https://vaishalisharma.com.np/#person"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Biratnagar",
+          "addressRegion": "Koshi Province",
+          "addressCountry": "NP"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 26.4525,
+          "longitude": 87.2718
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Biratnagar"
+          },
+          {
+            "@type": "City",
+            "name": "Itahari"
+          },
+          {
+            "@type": "City",
+            "name": "Dharan"
+          },
+          {
+            "@type": "City",
+            "name": "Inaruwa"
+          },
+          {
+            "@type": "City",
+            "name": "Damak"
+          },
+          {
+            "@type": "City",
+            "name": "Birtamod"
+          },
+          {
+            "@type": "City",
+            "name": "Kathmandu"
+          },
+          {
+            "@type": "City",
+            "name": "Lalitpur"
+          },
+          {
+            "@type": "City",
+            "name": "Bhaktapur"
+          },
+          {
+            "@type": "Country",
+            "name": "Nepal"
+          }
+        ],
+        "knowsAbout": [
+          "Graphic design",
+          "Social media design",
+          "Social media management",
+          "Content creation",
+          "Short-form video editing",
+          "AI video generation",
+          "Script writing",
+          "Meta Ads",
+          "Facebook boosting",
+          "Instagram marketing",
+          "Lead handling",
+          "Brand identity"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "email": "khushee.m.sharma@gmail.com",
+          "url": "https://wa.me/9779827303983?text=Hi%20Vaishali%2C%20I%20found%20your%20website%20and%20want%20to%20talk%20about%20a%20project.",
+          "availableLanguage": [
+            "English",
+            "Nepali"
+          ]
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/vaishali-sharma01",
+          "https://www.tiktok.com/@khuuushiiiiii"
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://vaishalisharma.com.np/blog/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://vaishalisharma.com.np/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://vaishalisharma.com.np/blog/"
+          }
+        ]
+      },
+      {
+        "@type": "CollectionPage",
+        "@id": "https://vaishalisharma.com.np/blog/#webpage",
+        "url": "https://vaishalisharma.com.np/blog/",
+        "name": "Blog: Social Media, Meta Ads & Design Tips for Nepal",
+        "description": "Practical notes on social media marketing, Facebook and Instagram ads, and design for businesses in Nepal, by Vaishali Sharma.",
+        "isPartOf": {
+          "@id": "https://vaishalisharma.com.np/#website"
+        },
+        "about": {
+          "@id": "https://vaishalisharma.com.np/#business"
+        },
+        "inLanguage": "en",
+        "dateModified": "2026-09-27",
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://vaishalisharma.com.np/assets/images/og/blog.jpg"
+        },
+        "breadcrumb": {
+          "@id": "https://vaishalisharma.com.np/blog/#breadcrumb"
+        }
+      }
+    ]
   }
   </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-
-  <!-- Loading Screen -->
-  <div class="loading-screen" id="loadingScreen">
-    <div class="loading-mark">VS</div>
-    <div class="loading-bar"></div>
-  </div>
 
   <div class="scroll-progress" id="scrollProgress"></div>
 
@@ -79,11 +275,11 @@
       </a>
       <ul class="nav-menu" id="navMenu">
         <li><a href="/" class="nav-link">Home</a></li>
-        <li><a href="/about.html" class="nav-link">About</a></li>
+        <li><a href="/services/" class="nav-link">Services</a></li>
         <li><a href="/portfolio/" class="nav-link">Portfolio</a></li>
-        <li><a href="/resume/" class="nav-link">Resume</a></li>
-        <li><a href="/blog/" class="nav-link active">Blog</a></li>
-        <li><a href="/contact.html" class="nav-link">Contact</a></li>
+        <li><a href="/about" class="nav-link">About</a></li>
+        <li><a href="/blog/" class="nav-link active" aria-current="page">Blog</a></li>
+        <li><a href="/contact" class="nav-link">Contact</a></li>
       </ul>
       <div class="nav-actions">
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
@@ -101,18 +297,60 @@
     <!-- Page hero -->
     <section class="page-hero">
       <div class="container">
-        <span class="eyebrow reveal-on-scroll">Blog</span>
-        <h1 class="reveal-on-scroll">Notes on Design &amp; Process</h1>
-        <p class="reveal-on-scroll">Case studies, process breakdowns, and honest notes on interface trends, from someone who designs the screens and writes the code that ships them.</p>
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / <span aria-current="page">Blog</span></nav>
+        <span class="eyebrow">Blog</span>
+        <h1>Blog: Social Media, Meta Ads &amp; Design Notes</h1>
+        <p style="max-width: 68ch;">Practical notes on social media marketing, Facebook and Instagram ads, and design for businesses in Nepal, plus process write-ups from my UI/UX work.</p>
       </div>
     </section>
 
     <!-- Blog grid -->
     <section class="section" style="padding-top: 0;">
       <div class="container">
+        <h2 class="visually-hidden">All posts</h2>
         <div class="grid grid-2">
           <article class="blog-card card reveal-on-scroll">
-            <a href="/blog/ui-ux-design-process-case-study-walkthrough.html" class="thumb-wrap" style="background: var(--bg-alt);">
+            <a href="/blog/facebook-boost-vs-meta-ads-manager-nepal" class="thumb-wrap" style="background: var(--accent-soft);" aria-hidden="true" tabindex="-1">
+              <picture><source srcset="/assets/images/og/post-boost-vs-ads-manager.webp" type="image/webp"><img src="/assets/images/og/post-boost-vs-ads-manager.jpg" alt="" width="1200" height="630" loading="lazy"></picture>
+            </a>
+            <div class="card-body">
+              <span class="tag">Meta Ads</span>
+              <h3><a href="/blog/facebook-boost-vs-meta-ads-manager-nepal">Facebook Boost vs Meta Ads Manager: Which Should Nepali Businesses Use?</a></h3>
+              <p class="card-meta">7 min read</p>
+            </div>
+          </article>
+          <article class="blog-card card reveal-on-scroll">
+            <a href="/blog/how-to-pay-for-facebook-ads-from-nepal" class="thumb-wrap" style="background: var(--stamp-soft);" aria-hidden="true" tabindex="-1">
+              <picture><source srcset="/assets/images/og/post-pay-facebook-ads.webp" type="image/webp"><img src="/assets/images/og/post-pay-facebook-ads.jpg" alt="" width="1200" height="630" loading="lazy"></picture>
+            </a>
+            <div class="card-body">
+              <span class="tag stamp">Meta Ads</span>
+              <h3><a href="/blog/how-to-pay-for-facebook-ads-from-nepal">How to Pay for Facebook Ads from Nepal (2026 Guide)</a></h3>
+              <p class="card-meta">6 min read</p>
+            </div>
+          </article>
+          <article class="blog-card card reveal-on-scroll">
+            <a href="/blog/festival-social-media-posts-nepal" class="thumb-wrap" style="background: var(--accent-soft);" aria-hidden="true" tabindex="-1">
+              <picture><source srcset="/assets/images/og/post-festival-content.webp" type="image/webp"><img src="/assets/images/og/post-festival-content.jpg" alt="" width="1200" height="630" loading="lazy"></picture>
+            </a>
+            <div class="card-body">
+              <span class="tag">Social Media</span>
+              <h3><a href="/blog/festival-social-media-posts-nepal">Festival Social Media Posts for Nepali Businesses: Dashain, Tihar, Chhath</a></h3>
+              <p class="card-meta">7 min read</p>
+            </div>
+          </article>
+          <article class="blog-card card reveal-on-scroll">
+            <a href="/blog/get-more-messages-facebook-page-nepal" class="thumb-wrap" style="background: var(--stamp-soft);" aria-hidden="true" tabindex="-1">
+              <picture><source srcset="/assets/images/og/post-more-messages.webp" type="image/webp"><img src="/assets/images/og/post-more-messages.jpg" alt="" width="1200" height="630" loading="lazy"></picture>
+            </a>
+            <div class="card-body">
+              <span class="tag stamp">Social Media</span>
+              <h3><a href="/blog/get-more-messages-facebook-page-nepal">How to Get More Messages from Your Facebook Page in Nepal</a></h3>
+              <p class="card-meta">6 min read</p>
+            </div>
+          </article>
+          <article class="blog-card card reveal-on-scroll">
+            <a href="/blog/ui-ux-design-process-case-study-walkthrough" class="thumb-wrap" style="background: var(--bg-alt);">
               <svg viewBox="0 0 420 170" width="100%" height="100%" role="img" aria-label="Illustration of the four-stage design process: discover, design, prototype, build">
                 <text x="52" y="46" text-anchor="middle" font-size="9" font-weight="700" fill="var(--accent)" style="font-family:var(--font-body)">01</text>
                 <rect x="14" y="30" width="76" height="90" rx="12" fill="none" stroke="var(--border-strong)" stroke-width="1.5"/>
@@ -146,14 +384,14 @@
             </a>
             <div class="card-body">
               <span class="tag">Process</span>
-              <h3><a href="/blog/ui-ux-design-process-case-study-walkthrough.html">The UI/UX Design Process, Explained Through Real Case Studies</a></h3>
+              <h3><a href="/blog/ui-ux-design-process-case-study-walkthrough">The UI/UX Design Process, Explained Through Real Case Studies</a></h3>
               <p style="margin-top: var(--sp-2); font-size: var(--fs-sm);">A practical walkthrough of discover, wireframe, design, prototype, and build, drawn from HomeLoom, Streets to Runways, Glam, and WanderLust Diaries.</p>
               <p class="card-meta">By Vaishali Sharma &middot; 7 min read</p>
             </div>
           </article>
 
           <article class="blog-card card reveal-on-scroll">
-            <a href="/blog/glassmorphism-vs-neumorphism-vs-flat-design-2026.html" class="thumb-wrap" style="background: var(--bg-alt);">
+            <a href="/blog/glassmorphism-vs-neumorphism-vs-flat-design-2026" class="thumb-wrap" style="background: var(--bg-alt);">
               <svg viewBox="0 0 420 170" width="100%" height="100%" role="img" aria-label="Illustration comparing glassmorphism, neumorphism, and flat design UI cards">
                 <rect x="20" y="30" width="110" height="90" rx="12" fill="var(--bg-alt)" stroke="var(--border-strong)" stroke-width="1.5"/>
                 <circle cx="112" cy="42" r="16" fill="var(--stamp)" opacity="0.25"/>
@@ -172,7 +410,7 @@
             </a>
             <div class="card-body">
               <span class="tag stamp">UI Trends</span>
-              <h3><a href="/blog/glassmorphism-vs-neumorphism-vs-flat-design-2026.html">Glassmorphism vs. Neumorphism vs. Flat Design in 2026</a></h3>
+              <h3><a href="/blog/glassmorphism-vs-neumorphism-vs-flat-design-2026">Glassmorphism vs. Neumorphism vs. Flat Design in 2026</a></h3>
               <p style="margin-top: var(--sp-2); font-size: var(--fs-sm);">What each style is, when to use it, and the accessibility trade-offs (contrast and blur legibility) behind choosing a UI direction in 2026.</p>
               <p class="card-meta">By Vaishali Sharma &middot; 8 min read</p>
             </div>
@@ -188,7 +426,7 @@
           <h2>Let's build something great together</h2>
           <p>Have a project in mind, or just want to talk design? My inbox is open.</p>
           <div class="hero-actions">
-            <a href="/contact.html" class="btn btn-primary">Start a Conversation</a>
+            <a href="/contact" class="btn btn-primary">Start a Conversation</a>
             <a href="/resume/" class="btn btn-glass">View Resume</a>
           </div>
         </div>
@@ -202,34 +440,44 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="/" class="nav-logo"><span class="mark">VS</span> Vaishali Sharma</a>
-          <p>UI/UX Designer &amp; Front-End Developer based in Biratnagar, Nepal, working with clients everywhere.</p>
+          <p>Graphic designer and social media marketer in Biratnagar, Nepal. I design posts and reels, run Facebook and Instagram pages, and manage Meta ads for businesses across Nepal.</p>
           <div class="social-row" style="margin-top: var(--sp-5);">
-            <a href="https://linkedin.com/in/vaishali-sharma01" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V8h4v1.5A5.98 5.98 0 0 1 16 8Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-            <a href="#" class="social-link" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
-            <a href="#" class="social-link" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a>
+            <a href="https://www.linkedin.com/in/vaishali-sharma01" target="_blank" rel="noopener" class="social-link" aria-label="Vaishali Sharma on LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V8h4v1.5A5.98 5.98 0 0 1 16 8Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="https://www.tiktok.com/@khuuushiiiiii" target="_blank" rel="noopener" class="social-link" aria-label="Vaishali Sharma on TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5 2.6 2.6 0 0 1-2.6-2.6 2.6 2.6 0 0 1 3.35-2.49V9.66a5.73 5.73 0 0 0-.75-.05 5.69 5.69 0 0 0-5.69 5.69A5.69 5.69 0 0 0 9.86 21a5.69 5.69 0 0 0 5.69-5.69V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3a4.3 4.3 0 0 1-3.25-1.48z"/></svg></a>
+            <a href="https://wa.me/9779827303983?text=Hi%20Vaishali%2C%20I%20found%20your%20website%20and%20want%20to%20talk%20about%20a%20project." target="_blank" rel="noopener" class="social-link" aria-label="Chat with Vaishali on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.17-3.48-8.41Z"/></svg></a>
           </div>
         </div>
-        <nav class="footer-col">
-          <h4>Site</h4>
-          <a href="/about.html">About</a>
+        <nav class="footer-col" aria-label="Services">
+          <h2>Services</h2>
+          <a href="/services/graphic-design">Graphic Design</a>
+          <a href="/services/social-media-management">Social Media Management</a>
+          <a href="/services/meta-ads">Meta Ads &amp; Facebook Boosting</a>
+          <a href="/services/">All Services</a>
+        </nav>
+        <nav class="footer-col" aria-label="Site">
+          <h2>Site</h2>
+          <a href="/about">About</a>
           <a href="/portfolio/">Portfolio</a>
           <a href="/resume/">Resume</a>
           <a href="/blog/">Blog</a>
-          <a href="/contact.html">Contact</a>
+          <a href="/contact">Contact</a>
         </nav>
         <div class="footer-col">
-          <h4>Get in touch</h4>
+          <h2>Get in touch</h2>
           <a href="mailto:khushee.m.sharma@gmail.com">khushee.m.sharma@gmail.com</a>
-          <span style="display:block;padding:var(--sp-1) 0;font-size:var(--fs-sm);color:var(--text-secondary);">Biratnagar, Nepal</span>
+          <a href="https://wa.me/9779827303983?text=Hi%20Vaishali%2C%20I%20found%20your%20website%20and%20want%20to%20talk%20about%20a%20project." target="_blank" rel="noopener">WhatsApp me</a>
+          <a href="/biratnagar">Biratnagar, Koshi Province</a>
+          <a href="/kathmandu">Serving Kathmandu Valley</a>
         </div>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2026 Vaishali Sharma. All rights reserved.</p>
-        <p>Designed &amp; built by Vaishali Sharma</p>
+        <p>Graphic design, social media &amp; Meta ads in Nepal</p>
       </div>
     </div>
   </footer>
 
+  <a class="wa-fab" href="https://wa.me/9779827303983?text=Hi%20Vaishali%2C%20I%20found%20your%20website%20and%20want%20to%20talk%20about%20a%20project." target="_blank" rel="noopener" aria-label="Chat with Vaishali on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.17-3.48-8.41Z"/></svg><span class="wa-label">WhatsApp</span></a>
   <button class="fab-button" id="backToTop" aria-label="Back to top">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
   </button>

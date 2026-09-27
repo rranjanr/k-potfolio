@@ -1,0 +1,11 @@
+# Local Cloudflare dev server cache
+.wrangler/
+
+# Private exports (Search Console, analytics) never belong in the public site
+*.xlsx
+*.csv
+
+# OS / editor noise
+node_modules/
+.DS_Store
+Thumbs.db

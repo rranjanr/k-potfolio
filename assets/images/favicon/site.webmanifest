@@ -1,6 +1,9 @@
 {
-  "name": "Vaishali Sharma, UI/UX Designer",
+  "name": "Vaishali Sharma, Graphic Designer & Social Media Marketer",
   "short_name": "Vaishali Sharma",
+  "description": "Graphic design, social media management and Meta ads for businesses in Nepal.",
+  "start_url": "/",
+  "scope": "/",
   "icons": [
     {
       "src": "/assets/images/favicon/web-app-manifest-192x192.png",

@@ -1,3 +1,41 @@
+/* Self-hosted fonts (SIL Open Font License): Bricolage Grotesque and Archivo, latin + latin-ext */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(/assets/fonts/archivo-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(/assets/fonts/archivo-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 400 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(/assets/fonts/bricolage-grotesque-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 400 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(/assets/fonts/bricolage-grotesque-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 /* ==========================================================================
    Base: reset, design tokens, typography, theme (light/dark)
    ========================================================================== */
@@ -41,6 +79,10 @@ html {
   --sp-10: 4rem;
   --sp-12: 6rem;
   --sp-16: 8rem;
+
+  /* ---- Page rhythm ---- */
+  --nav-h: 68px;                                   /* fixed navbar height (content starts below it) */
+  --section-y: clamp(3rem, 1.8rem + 3.2vw, 5rem);  /* section padding: 48px on phones to 80px on desktop */
 
   /* ---- Radius ---- */
   --r-sm: 8px;
@@ -102,16 +144,16 @@ html {
   --bg-raised: #1f1c25;
   --text-primary: #f4f1e8;
   --text-secondary: #b7b2a4;
-  --text-tertiary: #837c6d;
+  --text-tertiary: #9d957f;
   --border: rgba(244, 241, 232, 0.14);
   --border-soft: rgba(244, 241, 232, 0.08);
   --border-strong: rgba(244, 241, 232, 0.92);
 
-  --accent: #6d84ff;
-  --accent-hover: #8a9dff;
-  --accent-soft: rgba(109, 132, 255, 0.16);
+  --accent: #8295ff;
+  --accent-hover: #9dabff;
+  --accent-soft: rgba(130, 149, 255, 0.16);
   --accent-ink: #0e0c18;
-  --stamp: #ff6a50;
+  --stamp: #ff806a;
   --stamp-soft: rgba(255, 106, 80, 0.16);
 
   --glass-nav-bg: rgba(19, 17, 23, 0.72);
@@ -154,6 +196,7 @@ body {
 
 img {
   max-width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -220,11 +263,7 @@ p {
 }
 
 .section {
-  padding: var(--sp-12) 0;
-}
-
-@media (max-width: 720px) {
-  .section { padding: var(--sp-10) 0; }
+  padding: var(--section-y) 0;
 }
 
 .section-header {

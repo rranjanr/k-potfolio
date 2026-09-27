@@ -3,33 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function(){var d=document.documentElement,t=null;try{t=localStorage.getItem('theme')}catch(e){}if(t!=='dark'&&t!=='light'){t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}d.setAttribute('data-theme',t)})();</script>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6RFY3KT8M6"></script>
+  <!-- Google Analytics 4: events queue immediately; the library loads once the page is idle so it never delays rendering -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-6RFY3KT8M6');
+    window.addEventListener('load', function () {
+      var load = function () {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-6RFY3KT8M6';
+        document.head.appendChild(s);
+      };
+      if ('requestIdleCallback' in window) requestIdleCallback(load, { timeout: 3000 });
+      else setTimeout(load, 1500);
+    });
   </script>
 
-  <title>The UI/UX Design Process, Explained Through Real Case Studies | Vaishali Sharma</title>
-  <meta name="description" content="A practical walkthrough of the UI/UX design process: discover, wireframe, design, prototype, build, through real case studies from HomeLoom, Streets to Runways, Glam, and WanderLust Diaries.">
-  <link rel="canonical" href="https://vaishalisharma.com.np/blog/ui-ux-design-process-case-study-walkthrough.html">
+  <title>The UI/UX Design Process, Explained Through Real Case Studies</title>
+  <meta name="description" content="A practical walkthrough of the UI/UX design process (discover, wireframe, design, prototype, build) using four real case studies.">
+  <link rel="canonical" href="https://vaishalisharma.com.np/blog/ui-ux-design-process-case-study-walkthrough">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Vaishali Sharma">
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Vaishali Sharma">
   <meta property="og:title" content="The UI/UX Design Process, Explained Through Real Case Studies">
-  <meta property="og:description" content="A practical walkthrough of the UI/UX design process: discover, wireframe, design, prototype, build, through real case studies from HomeLoom, Streets to Runways, Glam, and WanderLust Diaries.">
-  <meta property="og:url" content="https://vaishalisharma.com.np/blog/ui-ux-design-process-case-study-walkthrough.html">
+  <meta property="og:description" content="A practical walkthrough of the UI/UX design process (discover, wireframe, design, prototype, build) using four real case studies.">
+  <meta property="og:url" content="https://vaishalisharma.com.np/blog/ui-ux-design-process-case-study-walkthrough">
   <meta property="og:image" content="https://vaishalisharma.com.np/assets/images/og/blog-process.jpg">
+  <meta property="og:image:alt" content="The UI/UX Design Process, Explained Through Real Case Studies">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="The UI/UX Design Process, Explained Through Real Case Studies">
-  <meta name="twitter:description" content="A practical walkthrough of the UI/UX design process: discover, wireframe, design, prototype, build, through real case studies from HomeLoom, Streets to Runways, Glam, and WanderLust Diaries.">
+  <meta name="twitter:description" content="A practical walkthrough of the UI/UX design process (discover, wireframe, design, prototype, build) using four real case studies.">
   <meta name="twitter:image" content="https://vaishalisharma.com.np/assets/images/og/blog-process.jpg">
 
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-96x96.png" sizes="96x96">
   <link rel="shortcut icon" href="/favicon.ico">
@@ -38,9 +51,8 @@
   <meta name="apple-mobile-web-app-title" content="Vaishali Sharma">
   <meta name="theme-color" content="#f5f1e6">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
 
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/components.css">
@@ -49,25 +61,233 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "The UI/UX Design Process, Explained Through Real Case Studies",
-    "description": "A practical walkthrough of the UI/UX design process: discover, wireframe, design, prototype, build, through real case studies from HomeLoom, Streets to Runways, Glam, and WanderLust Diaries.",
-    "author": { "@type": "Person", "name": "Vaishali Sharma" },
-    "datePublished": "2026-06-18",
-    "dateModified": "2026-06-18",
-    "image": "https://vaishalisharma.com.np/assets/images/og/blog-process.jpg",
-    "mainEntityOfPage": "https://vaishalisharma.com.np/blog/ui-ux-design-process-case-study-walkthrough.html"
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://vaishalisharma.com.np/#website",
+        "url": "https://vaishalisharma.com.np/",
+        "name": "Vaishali Sharma",
+        "inLanguage": "en",
+        "publisher": {
+          "@id": "https://vaishalisharma.com.np/#person"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://vaishalisharma.com.np/#person",
+        "name": "Vaishali Sharma",
+        "url": "https://vaishalisharma.com.np/",
+        "image": "https://vaishalisharma.com.np/assets/images/profile/pp.jpg",
+        "jobTitle": "Graphic Designer & Social Media Marketer",
+        "description": "Graphic designer and social media marketer based in Biratnagar, Nepal. Designs social media content, manages Facebook and Instagram pages, and runs Meta ads for Nepali businesses.",
+        "email": "mailto:khushee.m.sharma@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Biratnagar",
+          "addressRegion": "Koshi Province",
+          "addressCountry": "NP"
+        },
+        "homeLocation": {
+          "@type": "City",
+          "name": "Biratnagar"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Tribhuvan University"
+        },
+        "knowsAbout": [
+          "Graphic design",
+          "Social media design",
+          "Social media management",
+          "Content creation",
+          "Short-form video editing",
+          "AI video generation",
+          "Script writing",
+          "Meta Ads",
+          "Facebook boosting",
+          "Instagram marketing",
+          "Lead handling",
+          "Brand identity",
+          "Canva",
+          "Adobe Illustrator",
+          "Figma",
+          "CapCut",
+          "UI/UX design"
+        ],
+        "knowsLanguage": [
+          "en",
+          "ne"
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/vaishali-sharma01",
+          "https://www.tiktok.com/@khuuushiiiiii"
+        ]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://vaishalisharma.com.np/#business",
+        "name": "Vaishali Sharma: Graphic Design & Social Media Marketing",
+        "url": "https://vaishalisharma.com.np/",
+        "image": "https://vaishalisharma.com.np/assets/images/og/home.jpg",
+        "logo": "https://vaishalisharma.com.np/assets/images/favicon/web-app-manifest-512x512.png",
+        "description": "Freelance graphic design, social media management and Meta ads (Facebook and Instagram boosting) for businesses in Biratnagar, Kathmandu and across Nepal.",
+        "email": "mailto:khushee.m.sharma@gmail.com",
+        "founder": {
+          "@id": "https://vaishalisharma.com.np/#person"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Biratnagar",
+          "addressRegion": "Koshi Province",
+          "addressCountry": "NP"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 26.4525,
+          "longitude": 87.2718
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Biratnagar"
+          },
+          {
+            "@type": "City",
+            "name": "Itahari"
+          },
+          {
+            "@type": "City",
+            "name": "Dharan"
+          },
+          {
+            "@type": "City",
+            "name": "Inaruwa"
+          },
+          {
+            "@type": "City",
+            "name": "Damak"
+          },
+          {
+            "@type": "City",
+            "name": "Birtamod"
+          },
+          {
+            "@type": "City",
+            "name": "Kathmandu"
+          },
+          {
+            "@type": "City",
+            "name": "Lalitpur"
+          },
+          {
+            "@type": "City",
+            "name": "Bhaktapur"
+          },
+          {
+            "@type": "Country",
+            "name": "Nepal"
+          }
+        ],
+        "knowsAbout": [
+          "Graphic design",
+          "Social media design",
+          "Social media management",
+          "Content creation",
+          "Short-form video editing",
+          "AI video generation",
+          "Script writing",
+          "Meta Ads",
+          "Facebook boosting",
+          "Instagram marketing",
+          "Lead handling",
+          "Brand identity"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "email": "khushee.m.sharma@gmail.com",
+          "url": "https://wa.me/9779827303983?text=Hi%20Vaishali%2C%20I%20found%20your%20website%20and%20want%20to%20talk%20about%20a%20project.",
+          "availableLanguage": [
+            "English",
+            "Nepali"
+          ]
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/vaishali-sharma01",
+          "https://www.tiktok.com/@khuuushiiiiii"
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://vaishalisharma.com.np/blog/ui-ux-design-process-case-study-walkthrough#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://vaishalisharma.com.np/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://vaishalisharma.com.np/blog/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "The UI/UX Design Process",
+            "item": "https://vaishalisharma.com.np/blog/ui-ux-design-process-case-study-walkthrough"
+          }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://vaishalisharma.com.np/blog/ui-ux-design-process-case-study-walkthrough#webpage",
+        "url": "https://vaishalisharma.com.np/blog/ui-ux-design-process-case-study-walkthrough",
+        "name": "The UI/UX Design Process, Explained Through Real Case Studies",
+        "description": "A practical walkthrough of the UI/UX design process (discover, wireframe, design, prototype, build) using four real case studies.",
+        "isPartOf": {
+          "@id": "https://vaishalisharma.com.np/#website"
+        },
+        "about": {
+          "@id": "https://vaishalisharma.com.np/blog/ui-ux-design-process-case-study-walkthrough#article"
+        },
+        "inLanguage": "en",
+        "dateModified": "2026-06-18",
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://vaishalisharma.com.np/assets/images/og/blog-process.jpg"
+        },
+        "breadcrumb": {
+          "@id": "https://vaishalisharma.com.np/blog/ui-ux-design-process-case-study-walkthrough#breadcrumb"
+        }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "The UI/UX Design Process, Explained Through Real Case Studies",
+        "description": "A practical walkthrough of the UI/UX design process: discover, wireframe, design, prototype, build, through real case studies from HomeLoom, Streets to Runways, Glam, and WanderLust Diaries.",
+        "author": {
+          "@id": "https://vaishalisharma.com.np/#person"
+        },
+        "datePublished": "2026-06-18",
+        "dateModified": "2026-06-18",
+        "image": "https://vaishalisharma.com.np/assets/images/og/blog-process.jpg",
+        "mainEntityOfPage": {
+          "@id": "https://vaishalisharma.com.np/blog/ui-ux-design-process-case-study-walkthrough#webpage"
+        },
+        "@id": "https://vaishalisharma.com.np/blog/ui-ux-design-process-case-study-walkthrough#article",
+        "publisher": {
+          "@id": "https://vaishalisharma.com.np/#person"
+        },
+        "inLanguage": "en"
+      }
+    ]
   }
   </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-
-  <!-- Loading Screen -->
-  <div class="loading-screen" id="loadingScreen">
-    <div class="loading-mark">VS</div>
-    <div class="loading-bar"></div>
-  </div>
 
   <div class="scroll-progress" id="scrollProgress"></div>
 
@@ -80,11 +300,11 @@
       </a>
       <ul class="nav-menu" id="navMenu">
         <li><a href="/" class="nav-link">Home</a></li>
-        <li><a href="/about.html" class="nav-link">About</a></li>
+        <li><a href="/services/" class="nav-link">Services</a></li>
         <li><a href="/portfolio/" class="nav-link">Portfolio</a></li>
-        <li><a href="/resume/" class="nav-link">Resume</a></li>
-        <li><a href="/blog/" class="nav-link active">Blog</a></li>
-        <li><a href="/contact.html" class="nav-link">Contact</a></li>
+        <li><a href="/about" class="nav-link">About</a></li>
+        <li><a href="/blog/" class="nav-link active" aria-current="page">Blog</a></li>
+        <li><a href="/contact" class="nav-link">Contact</a></li>
       </ul>
       <div class="nav-actions">
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
@@ -102,7 +322,7 @@
     <!-- Post hero -->
     <section class="page-hero">
       <div class="container">
-        <nav class="breadcrumb reveal-on-scroll" aria-label="Breadcrumb">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="/">Home</a>
           <span aria-hidden="true">/</span>
           <a href="/blog/">Blog</a>
@@ -110,7 +330,7 @@
           <span>The UI/UX Design Process, Explained Through Real Case Studies</span>
         </nav>
 
-        <div class="post-cover glass reveal-on-scroll" style="background: var(--bg-alt);">
+        <div class="post-cover glass" style="background: var(--bg-alt);">
           <svg viewBox="0 0 420 170" width="100%" height="100%" role="img" aria-label="Illustration of the four-stage design process: discover, design, prototype, build">
             <text x="52" y="46" text-anchor="middle" font-size="9" font-weight="700" fill="var(--accent)" style="font-family:var(--font-body)">01</text>
             <rect x="14" y="30" width="76" height="90" rx="12" fill="none" stroke="var(--border-strong)" stroke-width="1.5"/>
@@ -149,8 +369,8 @@
           </svg>
         </div>
 
-        <h1 class="reveal-on-scroll">The UI/UX Design Process, Explained Through Real Case Studies</h1>
-        <p class="card-meta reveal-on-scroll" style="margin-top: var(--sp-3); font-size: var(--fs-sm);">By Vaishali Sharma &middot; 7 min read &middot; June 18, 2026</p>
+        <h1>The UI/UX Design Process, Explained Through Real Case Studies</h1>
+        <p class="card-meta" style="margin-top: var(--sp-3); font-size: var(--fs-sm);">By Vaishali Sharma &middot; 7 min read &middot; June 18, 2026</p>
       </div>
     </section>
 
@@ -168,26 +388,26 @@
 
           <h2>Step 1: Discover, research before you open Figma</h2>
           <p>Every project starts with constraints, not colors. Before I sketch anything, I want answers to three questions: who is this for, what are they trying to do, and what's actually stopping them right now?</p>
-          <p>For <a href="/portfolio/homeloom.html">HomeLoom</a>, a furniture e-commerce concept, the starting brief was about craft and material, but the real design problem was friction in the shop-to-cart journey. Furniture shopping is high-consideration; people compare, second-guess, and abandon carts more than almost any other product category. So discovery wasn't just "what should this look like," it was "where does hesitation happen, and how do we design for it instead of against it."</p>
+          <p>For <a href="/portfolio/homeloom">HomeLoom</a>, a furniture e-commerce concept, the starting brief was about craft and material, but the real design problem was friction in the shop-to-cart journey. Furniture shopping is high-consideration; people compare, second-guess, and abandon carts more than almost any other product category. So discovery wasn't just "what should this look like," it was "where does hesitation happen, and how do we design for it instead of against it."</p>
           <p><strong>The discovery phase is where you decide what a project is actually about</strong>, not the brand's stated goal, but the underlying user behavior you're designing around. Get this wrong and every decision downstream inherits the mistake.</p>
 
           <h2>Step 2: Wireframe, structure before style</h2>
           <p>Wireframes are where I make layout and hierarchy decisions with none of the distraction of color, type, or imagery. This is deliberate. If a wireframe only works because the hero photo is beautiful, the structure underneath it is doing too little of the job.</p>
           <blockquote>A wireframe that nobody argues about usually isn't finished; it just hasn't been looked at closely enough yet.</blockquote>
-          <p>I keep wireframes low-fidelity long enough to test the argument: does this order of information actually answer the user's questions in the order they ask them? For an e-commerce flow like <a href="/portfolio/glam.html">Glam</a>, that meant deciding early whether the product grid or the editorial lookbook content should lead the homepage: a decision that shapes everything downstream, and one that's much cheaper to get wrong in grayscale boxes than in a finished comp.</p>
+          <p>I keep wireframes low-fidelity long enough to test the argument: does this order of information actually answer the user's questions in the order they ask them? For an e-commerce flow like <a href="/portfolio/glam">Glam</a>, that meant deciding early whether the product grid or the editorial lookbook content should lead the homepage: a decision that shapes everything downstream, and one that's much cheaper to get wrong in grayscale boxes than in a finished comp.</p>
 
           <h2>Step 3: High-fidelity design, where the brand shows up</h2>
           <p>Once the structure holds up under scrutiny, I move into high-fidelity screens with a real content and component system: actual copy, real product photography (or stand-ins close enough to be honest), and a type and color system consistent enough to reuse across every page, not just the hero.</p>
 
           <h3>Editorial fashion: Glam</h3>
-          <p><a href="/portfolio/glam.html">Glam</a> is a good example of how visual style has to serve shopping behavior, not just a mood board. Fashion e-commerce customers browse the way they'd flip through a lookbook, so the interface leans into a dusty, editorial palette and generous imagery, while keeping the product grid, filters, and cart mechanics conventional enough that nobody has to relearn how to shop.</p>
+          <p><a href="/portfolio/glam">Glam</a> is a good example of how visual style has to serve shopping behavior, not just a mood board. Fashion e-commerce customers browse the way they'd flip through a lookbook, so the interface leans into a dusty, editorial palette and generous imagery, while keeping the product grid, filters, and cart mechanics conventional enough that nobody has to relearn how to shop.</p>
 
           <h3>Warmth and material: HomeLoom</h3>
-          <p><a href="/portfolio/homeloom.html">HomeLoom</a> took the opposite emotional register: warm tones, tactile textures, and typography that reads more like a craft brand than a big-box retailer, because the goal was to make a considered, higher-cost purchase feel less transactional and more like a decision worth taking time over.</p>
+          <p><a href="/portfolio/homeloom">HomeLoom</a> took the opposite emotional register: warm tones, tactile textures, and typography that reads more like a craft brand than a big-box retailer, because the goal was to make a considered, higher-cost purchase feel less transactional and more like a decision worth taking time over.</p>
           <p>The lesson that repeats across both projects: high-fidelity design isn't "add the final colors." It's translating a brand's actual sales psychology into layout, type, and imagery decisions that a customer feels before they consciously notice them.</p>
 
           <h2>Step 4: Prototype and test, catching friction before it ships</h2>
-          <p>This is the step that gets skipped most often, and it's the one that pays off the most. <a href="/portfolio/streets-to-runways.html">Streets to Runways</a>, a footwear brand landing page and sign-in flow, is the clearest example in my portfolio of why it's worth the extra week.</p>
+          <p>This is the step that gets skipped most often, and it's the one that pays off the most. <a href="/portfolio/streets-to-runways">Streets to Runways</a>, a footwear brand landing page and sign-in flow, is the clearest example in my portfolio of why it's worth the extra week.</p>
           <p>The original sign-in and checkout flow ran five steps: account details, shipping, verification, payment, and confirmation, each on its own screen. It worked. It also lost people along the way. Usability testing on the interactive prototype (watching real users move through it, not just asking what they thought afterward) showed exactly where the drop-off happened: two of those steps were re-collecting information the user had effectively already given, just in a different form.</p>
           <ul>
             <li>Combined shipping and verification into a single step, since both were collecting contact information</li>
@@ -201,7 +421,7 @@
           <p><strong>The build phase is a second usability test</strong>, this time against real browsers, real fonts loading asynchronously, and real thumbs on real screens, not a static comp. Spacing that looked generous in Figma sometimes needs to shrink on mobile. A carousel that felt smooth in a prototyping tool needs actual momentum scrolling and touch targets that meet a reasonable minimum size, not just a visual approximation of one.</p>
 
           <h2>What ties these projects together</h2>
-          <p><a href="/portfolio/wanderlust-diaries.html">WanderLust Diaries</a>, a travel blog concept, is a useful counterexample to the others, because its design brief was almost the opposite of HomeLoom's or Glam's: get out of the way. The process was the same five steps, but the outcome leaned on large-format photography and minimal chrome, because the thing being "sold" was the feeling of a place, not a physical object with a price tag and a comparison table.</p>
+          <p><a href="/portfolio/wanderlust-diaries">WanderLust Diaries</a>, a travel blog concept, is a useful counterexample to the others, because its design brief was almost the opposite of HomeLoom's or Glam's: get out of the way. The process was the same five steps, but the outcome leaned on large-format photography and minimal chrome, because the thing being "sold" was the feeling of a place, not a physical object with a price tag and a comparison table.</p>
           <p>That's really the point of having a repeatable process. It doesn't produce the same-looking output every time; it produces the <em>right</em> output every time, because the discovery phase tells you what "right" means before you've spent hours designing toward the wrong goal.</p>
 
           <h2>A quick process checklist</h2>
@@ -213,7 +433,7 @@
             <li><strong>Build:</strong> treat implementation as a second, more honest usability test</li>
           </ul>
 
-          <p>If you're planning a product, storefront, or landing page and want a process that catches friction before it ships instead of after, I'd like to hear about it. <a href="/contact.html">Get in touch</a> and let's talk through what you're building.</p>
+          <p>If you're planning a product, storefront, or landing page and want a process that catches friction before it ships instead of after, I'd like to hear about it. <a href="/contact">Get in touch</a> and let's talk through what you're building.</p>
         </div>
       </div>
     </section>
@@ -227,7 +447,7 @@
         </div>
         <div style="max-width: 460px; margin: 0 auto;">
           <article class="blog-card card reveal-on-scroll">
-            <a href="/blog/glassmorphism-vs-neumorphism-vs-flat-design-2026.html" class="thumb-wrap" style="background: var(--bg-alt);">
+            <a href="/blog/glassmorphism-vs-neumorphism-vs-flat-design-2026" class="thumb-wrap" style="background: var(--bg-alt);">
               <svg viewBox="0 0 420 170" width="100%" height="100%" role="img" aria-label="Illustration comparing glassmorphism, neumorphism, and flat design UI cards">
                 <rect x="20" y="30" width="110" height="90" rx="12" fill="var(--bg-alt)" stroke="var(--border-strong)" stroke-width="1.5"/>
                 <circle cx="112" cy="42" r="16" fill="var(--stamp)" opacity="0.25"/>
@@ -248,7 +468,7 @@
             </a>
             <div class="card-body">
               <span class="tag stamp">UI Trends</span>
-              <h3><a href="/blog/glassmorphism-vs-neumorphism-vs-flat-design-2026.html">Glassmorphism vs. Neumorphism vs. Flat Design in 2026</a></h3>
+              <h3><a href="/blog/glassmorphism-vs-neumorphism-vs-flat-design-2026">Glassmorphism vs. Neumorphism vs. Flat Design in 2026</a></h3>
               <p class="card-meta">8 min read</p>
             </div>
           </article>
@@ -263,7 +483,7 @@
           <h2>Let's build something great together</h2>
           <p>Have a project in mind, or just want to talk design? My inbox is open.</p>
           <div class="hero-actions">
-            <a href="/contact.html" class="btn btn-primary">Start a Conversation</a>
+            <a href="/contact" class="btn btn-primary">Start a Conversation</a>
             <a href="/resume/" class="btn btn-glass">View Resume</a>
           </div>
         </div>
@@ -277,34 +497,44 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="/" class="nav-logo"><span class="mark">VS</span> Vaishali Sharma</a>
-          <p>UI/UX Designer &amp; Front-End Developer based in Biratnagar, Nepal, working with clients everywhere.</p>
+          <p>Graphic designer and social media marketer in Biratnagar, Nepal. I design posts and reels, run Facebook and Instagram pages, and manage Meta ads for businesses across Nepal.</p>
           <div class="social-row" style="margin-top: var(--sp-5);">
-            <a href="https://linkedin.com/in/vaishali-sharma01" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V8h4v1.5A5.98 5.98 0 0 1 16 8Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-            <a href="#" class="social-link" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
-            <a href="#" class="social-link" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a>
+            <a href="https://www.linkedin.com/in/vaishali-sharma01" target="_blank" rel="noopener" class="social-link" aria-label="Vaishali Sharma on LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V8h4v1.5A5.98 5.98 0 0 1 16 8Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="https://www.tiktok.com/@khuuushiiiiii" target="_blank" rel="noopener" class="social-link" aria-label="Vaishali Sharma on TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5 2.6 2.6 0 0 1-2.6-2.6 2.6 2.6 0 0 1 3.35-2.49V9.66a5.73 5.73 0 0 0-.75-.05 5.69 5.69 0 0 0-5.69 5.69A5.69 5.69 0 0 0 9.86 21a5.69 5.69 0 0 0 5.69-5.69V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3a4.3 4.3 0 0 1-3.25-1.48z"/></svg></a>
+            <a href="https://wa.me/9779827303983?text=Hi%20Vaishali%2C%20I%20found%20your%20website%20and%20want%20to%20talk%20about%20a%20project." target="_blank" rel="noopener" class="social-link" aria-label="Chat with Vaishali on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.17-3.48-8.41Z"/></svg></a>
           </div>
         </div>
-        <nav class="footer-col">
-          <h4>Site</h4>
-          <a href="/about.html">About</a>
+        <nav class="footer-col" aria-label="Services">
+          <h2>Services</h2>
+          <a href="/services/graphic-design">Graphic Design</a>
+          <a href="/services/social-media-management">Social Media Management</a>
+          <a href="/services/meta-ads">Meta Ads &amp; Facebook Boosting</a>
+          <a href="/services/">All Services</a>
+        </nav>
+        <nav class="footer-col" aria-label="Site">
+          <h2>Site</h2>
+          <a href="/about">About</a>
           <a href="/portfolio/">Portfolio</a>
           <a href="/resume/">Resume</a>
           <a href="/blog/">Blog</a>
-          <a href="/contact.html">Contact</a>
+          <a href="/contact">Contact</a>
         </nav>
         <div class="footer-col">
-          <h4>Get in touch</h4>
+          <h2>Get in touch</h2>
           <a href="mailto:khushee.m.sharma@gmail.com">khushee.m.sharma@gmail.com</a>
-          <span style="display:block;padding:var(--sp-1) 0;font-size:var(--fs-sm);color:var(--text-secondary);">Biratnagar, Nepal</span>
+          <a href="https://wa.me/9779827303983?text=Hi%20Vaishali%2C%20I%20found%20your%20website%20and%20want%20to%20talk%20about%20a%20project." target="_blank" rel="noopener">WhatsApp me</a>
+          <a href="/biratnagar">Biratnagar, Koshi Province</a>
+          <a href="/kathmandu">Serving Kathmandu Valley</a>
         </div>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2026 Vaishali Sharma. All rights reserved.</p>
-        <p>Designed &amp; built by Vaishali Sharma</p>
+        <p>Graphic design, social media &amp; Meta ads in Nepal</p>
       </div>
     </div>
   </footer>
 
+  <a class="wa-fab" href="https://wa.me/9779827303983?text=Hi%20Vaishali%2C%20I%20found%20your%20website%20and%20want%20to%20talk%20about%20a%20project." target="_blank" rel="noopener" aria-label="Chat with Vaishali on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.17-3.48-8.41Z"/></svg><span class="wa-label">WhatsApp</span></a>
   <button class="fab-button" id="backToTop" aria-label="Back to top">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
   </button>
